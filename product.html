@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="product.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1544791081.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Navigation bar-->
+    <section id="nav-bar">
+        <div id="logo">
+            <!--<div class="nav-button">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>-->
+            <a href="index.html"><i class="fa-solid fa-snowflake fa-3x logo"></i></a>
+            <h1 class="logo">Nutrition</h1>
+        </div>
+        <div id="options">
+            <h1><a href="index.html">Home</a></h1>
+            <h1><a href="index.html">Products</a></h1>
+            <h1><a href="index.html">About Us</a></h1>
+            <h1><a href="index.html">Contact</a></h1>
+            <h1><a href="index.html">Authenticity</a></h1>
+            <input type="text" placeholder="Search" class="search">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping logo fa-2x cart"></i></a>
+            </div>
+    </section>
+    <!--Navigation bar-->
+
+    <section id="all-content">
+
+    <!--Spacer-->
+    <div id="spacer">
+    </div>
+    <!--Spacer-->
+
+    <!---Pop Up-->
+    <div id="Pop-up" class="Pop_up_OFF">
+        <div id="login">
+            <div id="form">
+                <div><label for="Name">Enter Your Full Name:</label><input type="text" id="full_name" autocomplete="name" placeholder="Your Name"></div>
+                <div><label for="Name">Enter Your Mobile Number:</label><input type="number" id="mobile_no" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Mobile Number"></div>
+                <div id="check_box_container">
+                    <div id="check_box" class="correct_it"><label for="offers"><input type="checkbox"/>I agree to receive deals, offers and other details on my number.</label></div>
+                    <div id="check_box"><label for="offers"><input type="checkbox"/>I agree to terms and Condition.</label></div>
+                </div>
+                <Button id="user_creation">Submit</Button>
+                <p>We respect your privacy & we are committed to protecting your personal information!</p>
+            </div>
+        </div>
+    </div>
+    <!---Pop Up-->
+
+    <div class="product-details">
+        <div class="imp">
+            <div id="product-images">
+                <div id="list-of-images">
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-1">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-2">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-3">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-4">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-5">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-6">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-7">
+                    </div>
+                    <div class="pr-img-small">
+                        <img src="" alt="Product Image"  id="pr-img-8">
+                    </div>
+                </div>
+                <div class="main-img">
+                    <img src="" alt="Product Image" id="zoomed-Image">
+                </div>
+            </div>
+
+            <div class="for-imp">
+
+                <div id="title">
+                <h1 id="h1_title"></h1>
+                </div>
+
+                <div class="price_disc">
+
+                    <div class="disc">
+                        <p class="flat">FLAT</p>
+                        <p class="dis"></p>
+                        <p class="off">OFF</p>
+                    </div>
+
+                    <div class="pricing">
+                        <strike><p class="mrp"></p></strike>
+                        <h1 class="price"></h1>
+                    </div>
+
+                    <div id="Rating">
+                        <h1 id="rating_h1"></h1>
+                        <div id="stars">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="size">
+                    <label for="size">
+                        Size: <select required name="size" id="size">
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                        </select>
+                        Kg
+                    </label>
+                    </div>
+    
+                    <div class="flavour">
+                    <label for="flavour">
+                        Flavour: <select required name="flavour" id="flavour">
+                            <option value="Vanilla">Vanilla</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Banana">Banana</option>
+                        </select>
+                    </label>
+                    </div>
+
+                <div class="quantity">
+                <label for="quantity">
+                    Quantity: <select required name="quantity" id="quan">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    pcs.
+                </label>
+                </div>
+
+                <button type="button" id="add-to-cart">Add to Cart <span class="add">>>></span><i class="fa-solid fa-cart-shopping logo fa-1x" id="cart-footer"></i></button>
+
+                <div id="bullet_points">
+                    <h1>About this Product:</h1>
+                    <div id="points">
+                        <ul>
+                            <li id="benefit_1" class="point"></li>
+                            <li id="benefit_2" class="point"></li>
+                            <li id="benefit_3" class="point"></li>
+                            <li id="benefit_4" class="point"></li>
+                            <li id="benefit_5" class="point"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="description">
+            <h1 class="des-title">Description</h1>
+            <p class="des"></p>
+        </div>
+
+        <div id="reviews">
+            <div id="avg-reviews">
+                <div id="avg-rating" class="avg-rating-star">
+                    <h2 id="rating_avg_text" class="avg-star-count"></h2>
+                    <p></p>
+                </div>
+                <div class="line"></div>
+                <div class="Stars" id="avg-stars">
+                </div>
+                
+            </div>
+            <div id="detailed-rew">
+                <div id="review-1" class="review">
+                    <div class="user-detail-con">
+                            <div class="rew-pro-pic"></div>
+                            <div class="id-con-rew">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                        <div id="rating" class="each-rating-star">
+                            <div class="Stars" id="ind-stars">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="rew-description" class="rew-des"></p>
+                </div>
+
+                <div id="review-2" class="review">
+                    <div class="user-detail-con">
+                            <div class="rew-pro-pic"></div>
+                            <div class="id-con-rew">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                        <div id="rating" class="each-rating-star">
+                            <div class="Stars" id="ind-stars">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="rew-description" class="rew-des"></p>
+                </div>
+
+                <div id="review-3" class="review">
+                    <div class="user-detail-con">
+                            <div class="rew-pro-pic"></div>
+                            <div class="id-con-rew">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                        <div id="rating" class="each-rating-star">
+                            <div class="Stars" id="ind-stars">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="rew-description" class="rew-des"></p>
+                </div>
+
+                <div id="review-4" class="review">
+                    <div class="user-detail-con">
+                            <div class="rew-pro-pic"></div>
+                            <div class="id-con-rew">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                        <div id="rating" class="each-rating-star">
+                            <div class="Stars" id="ind-stars">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="rew-description" class="rew-des"></p>
+                </div>
+
+                <div id="review-5" class="review">
+                    <div class="user-detail-con">
+                            <div class="rew-pro-pic"></div>
+                            <div class="id-con-rew">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                        <div id="rating" class="each-rating-star">
+                            <div class="Stars" id="ind-stars">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="rew-description" class="rew-des"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="rel_pr_tray">
+            <h1 id="heading">Related Products:</h1>
+            <div id="rel_pr_con">
+
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+
+    <section id="about"></section>
+    <script src="product.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.google.com/script/api.js"></script>
+
+</body>
+
+<!--Footer start-->
+<footer class="section-1">
+    <section id="footer">
+        <div class="col">
+            <a href="index.html"><i id="footer-logo" class="fa-solid fa-snowflake fa-6x logo"></i></a>
+        <h4>Contact Us:</h4>
+        <p><strong>Address: </strong>Brand, 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</p>
+        <p><strong>Phone: </strong>+91 9877777777</p>
+        <p><strong>Hours: </strong>Mon - Sat, 10:00 AM to 06:00 PM</p>
+        <div class="follow">
+            <h4>Follow us:</h4>
+            <div class="icon">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-pinterest"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+        </div>
+        </div>
+
+        <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">My Orders</a>
+        <a href="#">Helps</a>
+        </div>
+
+        <div class="col install">
+        <h4>Install App</h4>
+        <p>From App store or Google Play</p>
+        <div class="row">
+            <a href="https://www.apple.com/in/app-store/"><i id="apps" class="fa-brands fa-app-store-ios fa-3x"></i></a>
+            <a href="https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700065205026415_creativeid_535350509927_device_c&gclid=CjwKCAiAmJGgBhAZEiwA1JZolgdrHOyTts-avoe3MnlIru_Ikrzg3JsOjMldvmVRxk5ZV6SoB8XPNhoCkLkQAvD_BwE&gclsrc=aw.ds"><i id="apps" class="fa-brands fa-google-play fa-3x"></i></a>
+        </div>
+        <p>Secured Payment Gateways</p>
+        <div class="row">
+            <i class="fa-brands fa-cc-visa fa-2x"></i>
+            <i class="fa-brands fa-cc-mastercard fa-2x"></i>
+            <i class="fa-brands fa-google-pay fa-2x"></i>
+            <i class="fa-brands fa-paypal fa-2x"></i>
+            <i class="fa-brands fa-amazon-pay fa-2x"></i>
+            <i class="fa-brands fa-apple-pay fa-2x"></i>
+        </div>
+        </div>
+        <div class="copy">
+        </i><p>© 2023, Tech2 etc - HTML CSS Ecommerce Template</p>
+        </div>
+    </section>
+</footer>
+<!--Footer end-->
+</section>
+</html>

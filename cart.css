@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark: rgb(34, 34, 34); 
+    --light: rgb(244, 235, 208);
+    --p1: rgb(241, 227, 164);
+    --p2: rgb(231, 205, 120);
+    --gold: rgb(222, 182, 75);
+    --font: 'Montserrat', sans-serif;
+}
+
+html {
+  font-family: var(--font);
+}
+
+#all-content {
+  min-width: 1356px;
+  max-width: 1356px;
+  margin: auto;
+}
+
+/*scroll bar start*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gold);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--p1);
+  border-radius: 10px;
+}
+
+/*scroll bar end*/
+/*Hearder and Navigation bar */
+
+#nav-bar {
+    width: 100%;
+    height: 60px;
+    background-color: var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.466);
+    z-index: 1;
+}
+
+.logo {
+    color: var(--dark);
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 a, .cart {
+    text-decoration: none;
+    color: var(--dark);
+    margin-right: 25px;
+    transition: 0.3s ease;
+    font-size: 1rem;
+}
+
+h1 a:hover,
+.cart:hover,
+.logo:hover {
+    color: var(--light);
+}
+
+.search {
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--p1);
+    padding: 0 10px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.search:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.466);
+  background-color: var(--light);
+}
+/*spacer*/
+
+#spacer {
+    width: 100%;
+    height: 80px;
+}
+
+/*cart start*/
+
+.page {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#cart-product-list {
+  background-color: var(--gold);
+  width: 65%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 5%;
+
+}
+
+.heading {
+  width: 98%;
+  height: 50px;
+  border-radius: 20px;
+  margin: auto;
+  display: flex;
+  font-size: 1rem;
+  overflow: hidden;
+  color: var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.font-size {
+  font-size: 1rem;
+}
+
+#cart-list {
+  background-color: var(--p2);
+  border-radius: 20px;
+  margin: 0 1%;
+  color: var(--dark);
+}
+
+.cart-product {
+  width: 98%;
+  height: 140px;
+  border-radius: 20px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px rgba(0, 0, 0, 0.384) solid;
+  
+  margin-bottom: 2%;
+}
+
+.cart-product-m {
+  width: 64%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-con {
+  height: 100%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-con img {
+  height: 90%;
+  aspect-ratio: 1;
+}
+
+.text-con {
+  font-size: 1rem;
+  width: 70%;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--p1);
+  border-radius: 20px;
+}
+
+.text-con h2 {
+  height: 50%;
+  margin-top: 6px;
+  font-size: 1rem;
+  margin-left: 10px;
+  font-weight: 100;
+}
+
+.text-con h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  margin-left: 10px;
+  height: 10%;
+}
+
+.fla-size-con {
+  display: flex;
+}
+
+.fla-size-con h2 {
+  margin: auto;
+  font-size: 1rem;
+}
+
+.qty_price_con {
+  width: 34%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.qty_price_con h1 {
+  margin: auto;
+
+}
+
+.separate-line {
+  width: 100%;
+}
+
+.price-t {
+  width: 5%;
+}
+
+.price-k {
+  width: 20%;
+}
+
+
+.final-calculation-c {
+  width: 25%;
+  padding: 0.3%;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: var(--gold);
+  margin-bottom: 5%;
+  position: sticky;
+  top: 85px;
+}
+
+.final-calculation {
+  margin: 3%;
+  padding: 3%;
+  border-radius: 20px;
+  font-size: 1.6rem;
+  background-color: var(--p2);
+  color: rgba(82, 82, 82, 0.678);
+  font-weight: 600;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1%;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.content h2 {
+  margin-top: 3%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.separator {
+  height: 2px;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  background-color: var(--dark);
+}
+
+.total h2 {
+  font-size: 1.6rem;
+}
+
+.check-out,
+#check-out {
+  font-size: 1.6rem;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  color: var(--light);
+  outline: none;
+  background-color: var(--gold);
+  transition: 0.5s ease-out;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.check-out:hover,
+#check-out:hover {
+  background-color: var(--dark);
+  color: var(--light);
+  box-shadow: 0px 0px 30px rgb(255, 255, 255);
+}
+
+.coupon-c {
+  width: 100%;
+  height: 30px;
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#coupon-input {
+  width: 54%;
+  height: 100%;
+  margin-right: 10px; 
+  border-radius: 10px;
+  border: none;
+  padding: 0 3%;
+  outline: none;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.coupon {
+  width: 40%;
+}
+
+
+
+/*footer start*/
+
+#footer-logo {
+    margin-bottom: 30px;
+  }
+  
+  #footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--dark);
+    background-color: var(--gold);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+    height: 400px;
+  }
+  
+  #footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  #footer h4 {
+    font-size: 1.6rem;
+    padding-bottom: 20px;
+  }
+  
+  #footer p, a {
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  #footer .follow {
+    margin-top: 20px;
+  }
+  
+  #footer .follow i, a,
+  #apps {
+    color: var(--dark);
+    padding-right: 4px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  #footer .follow i:hover,
+  #footer a:hover,
+  #apps:hover {
+  color: var(--light);
+  }
+  
+  #footer .copy {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /*footer end*/
