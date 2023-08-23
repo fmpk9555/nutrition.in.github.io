@@ -1,5 +1,3 @@
-const { text } = require("express");
-
 const urlParams = new URLSearchParams(window.location.search);
 const SKU = urlParams.get('SKU');
 
