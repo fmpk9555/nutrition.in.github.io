@@ -19,7 +19,7 @@ html {
 
 #all-content {
     min-width: 1356px;
-    max-width: 1356px;
+    max-width: 80vw;
     margin: auto;
   }
 
@@ -115,7 +115,7 @@ background-color: var(--light);
 }
 
 #Form_Value_Con {
-  width: 100%;
+  width: 90vw;
   margin: 2% auto;
 }
 
@@ -136,7 +136,16 @@ background-color: var(--light);
   background-color: var(--p2);
   margin: 5px auto;
   padding: 3px 0;
-  border-radius: 10px;
+  border-radius: 7px;
+}
+
+.collapse {
+  pointer-events: none;
+}
+
+.collapse input,
+.collapse select {
+  background-color: var(--p1)
 }
 
 #form-billing-heading {
@@ -155,26 +164,34 @@ background-color: var(--light);
 
 .Address-con label,
 .Address-con-sep label {
-  width: 10%;
+  width: 100px;
   font-weight: 600;
   color: rgb(49, 49, 49);
 }
 
 .Address-con input {
-  width: 85%;
+  width: 80%;
   border: none;
   color: rgb(49, 49, 49);
   outline: none;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
-.Address-con-sep input,
-.Address-con-sep select {
-  width: 35%;
+.Address-con-sep input {
+  width: 31%;
   border: none;
   outline: none;
-  padding: 5px;
+  padding: 10px;
+  color: rgb(49, 49, 49);
+  border-radius: 5px;
+}
+
+.Address-con-sep select {
+  width: 33.1%;
+  border: none;
+  outline: none;
+  padding: 10px;
   color: rgb(49, 49, 49);
   border-radius: 5px;
 }
@@ -203,11 +220,12 @@ background-color: var(--light);
 .Address-con-note textarea {
   max-width: 95%;
   min-width: 95%;
+  min-height: 50px;
   margin: 0 1%;
   border: none;
   outline: none;
   color: rgb(49, 49, 49);
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -224,9 +242,47 @@ background-color: var(--light);
   color: rgba(41, 41, 41, 0.712);
 }
 
+#btn_con {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#Add_com_btn {
+  width: 30%;
+  padding: 10px;
+  margin: 15px;
+  border: none;
+  outline: none;
+  background-color: var(--light);
+  color: var(--dark);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#Add_com_btn:hover {
+  background-color: rgba(255, 255, 255, 0.925);
+}
+
 #value_con {
   width: 25%;
+  border-radius: 10px;
+  height: fit-content;
   background-color: var(--gold);
+}
+
+#final_value {
+  width: 94%;
+  background-color: var(--p2);
+  height: 100%;
+  border-radius: 7px;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+#final_value h1 {
+  color:rgba(41, 41, 41, 0.712)
 }
 
 #payment_method {

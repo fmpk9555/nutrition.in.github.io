@@ -100,22 +100,21 @@
                         <option value="WB">West Bengal</option>
                         </select>
                 </div>
-                <div class="Address-con-note"><label for="notes">Notes (Optional):</label><textarea type="text" placeholder="Please enter any note regarding your order..."></textarea></div>
-                
-                <div id="checkbox_form"><label class="container">My Shipping address is same as Billing address.<input type="checkbox" checked="checked"><span class="checkmark"></span></label></div>
-                
-                <label for="heading" id="form-shipping-heading">Shipping Address:</label>
-                <div class="Address-con"><label for="name">Name:</label><input type="text" required autocomplete="name" placeholder="Please Enter Your Name"></div>
-                <div class="Address-con"><label for="contact-no.">Mobile no.:</label><input type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Please Enter Your Mobile Number"></div>
-                <div class="Address-con"><label for="Email-id">Email ID:</label><input type="text" autocomplete="email" placeholder="Please Enter Your Email ID"></div>
-                <div class="Address-con"><label for="Address">Address:</label><input type="text" required autocomplete="street-address" placeholder="Please Enter Your Address"></div>
-                <div class="Address-con-sep">
-                    <label for="city-name">City:</label><input id="city-name" type="text" required autocomplete="home city" placeholder="Please Enter the Name of your City">
-                    <label for="postal-code">Pin code:</label><input id="city-name" type="text" required autocomplete="postal-code" placeholder="Please Enter the Name of your City">
-                </div>
-                <div class="Address-con-sep">
-                    <label for="country-name">Country:</label><input id="city-name" type="text" required value="India" autocomplete="country-name" placeholder="Please Enter the Name of your City">
-                    <label for="state-name">State:</label>
+            
+                <div id="checkbox_form"><label class="container">My Shipping address is same as Billing address.<input id="checkbox_form_input" type="checkbox" checked="checked"><span class="checkmark"></span></label></div>
+                <div id="billing_form_con" class="collapse">
+                    <label for="heading" id="form-shipping-heading">Shipping Address:</label>
+                    <div class="Address-con"><label for="name">Name:</label><input type="text" autocomplete="name" placeholder="Please Enter Your Name"></div>
+                    <div class="Address-con"><label for="contact-no.">Mobile no.:</label><input type="number" autocomplete="tel" max="9999999999" min="1111111111" placeholder="Please Enter Your Mobile Number"></div>
+                    <div class="Address-con"><label for="Email-id">Email ID:</label><input type="text" autocomplete="email" placeholder="Please Enter Your Email ID"></div>
+                    <div class="Address-con"><label for="Address">Address:</label><input type="text" autocomplete="street-address" placeholder="Please Enter Your Address"></div>
+                    <div class="Address-con-sep">
+                        <label for="city-name">City:</label><input id="city-name" type="text" autocomplete="home city" placeholder="Please Enter the Name of your City">
+                        <label for="postal-code">Pin code:</label><input id="city-name" type="text" autocomplete="postal-code" placeholder="Please Enter the Name of your City">
+                        </div>
+                    <div class="Address-con-sep">
+                        <label for="country-name">Country:</label><input id="city-name" type="text" value="India" autocomplete="country-name" placeholder="Please Enter the Name of your City">
+                        <label for="state-name">State:</label>
                         <select id="country-state" name="country-state">
                         <option value="">Select state</option>
                         <option value="AN">Andaman and Nicobar Islands</option>
@@ -156,10 +155,19 @@
                         <option value="UT">Uttarakhand</option>
                         <option value="WB">West Bengal</option>
                         </select>
+                    </div>
                 </div>
+                <div class="Address-con-note"><label for="notes">Notes (Optional):</label><textarea type="text" placeholder="Please enter any note regarding your order..."></textarea></div>
+
+                <div id="btn_con"><button id="Add_com_btn">Proceed to Payment</button></div>
+
             </form>
         </div>
-        <div id="value_con"></div>
+        <div id="value_con">
+            <div id="final_value">
+                <h1 id="value_con_head">Cart Value:</h1>
+            </div>
+        </div>
     </div>
     <div id="payment_method"></div>
 </div>
