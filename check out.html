@@ -166,10 +166,46 @@
         <div id="value_con">
             <div id="final_value">
                 <h1 id="value_con_head">Cart Value:</h1>
+                <div class="cont_values_sep"><h3>Total:</h3><h3>Rs. 5890/-</h3></div>
+                <div class="cont_values_sep"><h3>Discount:</h3><h3>Rs. 1500/-</h3></div>
+                <div class="cont_values_sep"><h3>Coupon Discount:</h3><h3>Rs. 90/-</h3></div>
+                <div class="cont_values_sep"><h3>Delivery Fees:</h3><h3>Rs. 240/-</h3></div>
+                <div class="divider"></div>
+                <div class="cont_values_sep payable"><h3>Payable:</h3><h3>Rs. 5890/-</h3></div>
+                <div class="cont_values_sep payable"><input type="text" id="coupon_inp" required> <button id="coupon_btn">Apply</button></div>
             </div>
         </div>
     </div>
-    <div id="payment_method"></div>
+    <div id="payment_method">
+        <div id="pay_options">
+            <!--<div class="Option_pay"><h1>UPI</h1><p>(Unified Paym ents Interface)</p></div>
+            <div class="Option_pay"><h1>Pay Via Card</h1></div>
+            <div class="Option_pay"><h1>Pay Via Wallet</h1></div>
+            <div class="Option_pay"><h1>Netbanking</h1></div>
+            <div class="Option_pay"><h1>COD</h1><p>(Cash On Delivery)</p></div>-->
+
+            <button class="Option_pay">UPI<p>(Unified Paym ents Interface)</p></button>
+            <button class="Option_pay">Pay Via Card</button>
+            <button class="Option_pay">Pay Via Wallet</button>
+            <button class="Option_pay">Netbanking</button>
+            <button class="Option_pay Bottom_btn">COD<p>(Cash On Delivery)</p></button>
+        </div>
+        <div id="options_entery">
+            <div id="card_ent" class="">
+                <div id="app_list">
+                    <div class="app_con"><img src="Payment-options/pngwing.com.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
+                    <div class="app_con"><img src="Payment-options/vecteezy_paytm-logo-icon-vector_19040306.png" alt="Paytm_logo"><h1>PayTM</h1></div>
+                    <div class="app_con"><img src="Payment-options/PhonePe_Icons_PNG_Image_vsb1hj.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></div>
+                </div>
+                <div id="upi_int">
+                    <label for="Upi_Id">UPI ID:</label><input type="text" name="UPI_ID" placeholder="example@yahoo.in">
+                </div>
+                <div id="submit_btn">
+                    <button>Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
