@@ -349,6 +349,7 @@ background-color: var(--light);
 
 .Option_pay {
   width: 100%;
+  height: 20%;
   text-align: center;
   border-bottom: 2px solid var(--p1);
   border-left: none;
@@ -375,6 +376,8 @@ background-color: var(--light);
   border-radius: 0 5px 5px 0;
   border: 2px solid var(--p1);
   border-left: none;
+  display: flex;
+  align-items: center;
 }
 
 .collapse_pay {
@@ -384,9 +387,8 @@ background-color: var(--light);
   z-index: -100;
 }
 
-#card_ent {
+#upi_ent {
   width: 100%;
-  background-color: #2196F3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -397,28 +399,62 @@ background-color: var(--light);
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  margin-top: 10px;
 }
 
 .app_con {
   align-items: center;
+  height: 8rem;
+  width: 8rem;
+  border: 0px solid black;
+  padding: 3px;
   text-align: center;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 0px 0px var(--light) inset
 }
 
-#app_list img {
-  width: 60px;
+.app_con:hover {
+  box-shadow: 0 0 50px 5px var(--light) inset
+}
+
+.app_con img {
+  width: 4rem;
+  transition: 0.3s ease;
+}
+
+.app_con:hover img {
+  width: 4.5rem;
+}
+
+.app_con h1{
+  color: var(--dark);
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.app_con:hover h1 {
+  font-size: 1.3rem;
 }
 
 #upi_int label {
   margin-right: 10px;
+  font-weight: 600;
 }
 
-#upi_int,
-#submit_btn {
+#upi_int {
   width: 80%;
-
 }
 
-#upi_int input {
+.submit_btn {
+  width: 80%;
+  display: flex;
+}
+
+.input_pay input {
   background-color: white;
   border: none;
   outline: none;
@@ -428,7 +464,7 @@ background-color: var(--light);
   border-radius: 5px;
 }
 
-#submit_btn button {
+.submit_btn button {
   width: 50%;
   padding: 10px;
   font-size: 1rem;
@@ -436,12 +472,12 @@ background-color: var(--light);
   border-radius: 5px;
   outline: none;
   border: none;
-  margin-top: 10px;
+  margin: 10px auto ;
   background-color: var(--light);
   transition: 0.3s ease;
 }
 
-#submit_btn button:hover {
+.submit_btn button:hover {
   background-color: white;
 }
 
