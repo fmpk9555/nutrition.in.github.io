@@ -359,7 +359,16 @@ background-color: var(--light);
   font-size: 1rem;
   outline: none;
   background-color: transparent;
+  transition: 0.3s ease;
   padding: 10px;
+}
+
+.Option_pay:hover {
+  background-color: rgba(255, 255, 255, 0.308);
+}
+
+.Option_pay:active {
+  background-color: rgba(255, 255, 255, 0.548);
 }
 
 .Option_pay p {
@@ -378,13 +387,12 @@ background-color: var(--light);
   border-left: none;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .collapse_pay {
-  height: 0;
-  width: 0;
-  opacity: 0;
-  z-index: -100;
+  position: absolute;
+  z-index: -1;
 }
 
 #upi_ent {
@@ -459,7 +467,7 @@ background-color: var(--light);
   border: none;
   outline: none;
   margin-top: 20px;
-  width: 90%;
+  width: 85%;
   padding: 10px;
   border-radius: 5px;
 }
@@ -478,7 +486,102 @@ background-color: var(--light);
 }
 
 .submit_btn button:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+#card_ent {
+  width: 100%;
+  color: #000000b9;
+  height: 100%;
+  display: flex;
+}
+
+#payment-form{
+  height: max-content;
+  width: max-content;
+  margin: auto;
+}
+
+.lab_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-logo {
+  width: 75px;
+  max-height: 28px;
+  object-fit: scale-down;
+}
+
+.card_num_lab {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card_num_con {
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.int_logo {
+  width: max-content;
+  height: fit-content;
   background-color: white;
+  padding-right: 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.card_num_int {
+  width: max-content;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 5px 20px;
+}
+
+.card_date_cvv_con {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.card_date_cvv_con input {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 130px;
+  border: none;
+  outline: none;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.card_name_con {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card_name_int {
+  border: none;
+  outline: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-left: 10px;
+  width: 62.1%;
+}
+
+#CARD_ent_sbt_btn {
+  width: 100%;
 }
 
 /* Customize the label (the container) */

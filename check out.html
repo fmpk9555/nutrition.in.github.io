@@ -178,12 +178,6 @@
     </div>
     <div id="payment_method">
         <div id="pay_options">
-            <!--<div class="Option_pay"><h1>UPI</h1><p>(Unified Paym ents Interface)</p></div>
-            <div class="Option_pay"><h1>Pay Via Card</h1></div>
-            <div class="Option_pay"><h1>Pay Via Wallet</h1></div>
-            <div class="Option_pay"><h1>Netbanking</h1></div>
-            <div class="Option_pay"><h1>COD</h1><p>(Cash On Delivery)</p></div>-->
-
             <button class="Option_pay">UPI<p>(Unified Paym ents Interface)</p></button>
             <button class="Option_pay">Pay Via Card</button>
             <button class="Option_pay">Pay Via Wallet</button>
@@ -191,7 +185,7 @@
             <button class="Option_pay Bottom_btn">COD<p>(Cash On Delivery)</p></button>
         </div>
         <div id="options_entery">
-            <div id="upi_ent" class="">
+            <div id="upi_ent" class="collapse_pay">
                 <div id="app_list">
                     <div class="app_con"><img src="Payment-options/pngwing.com.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
                     <div class="app_con"><img src="Payment-options/vecteezy_paytm-logo-icon-vector_19040306.png" alt="Paytm_logo"><h1>PayTM</h1></div>
@@ -206,7 +200,34 @@
             </div>
 
             <div id="card_ent" class="">
-
+                <form id="payment-form">
+                    <div class="card_num_con">
+                        <div class="lab_logo">
+                            <label for="card-number" class="card_num_lab">Card Number:</label>
+                        </div>
+                        <div class="int_logo">
+                            <input type="text" class="card_num_int" autocomplete="cc-number" id="card-number" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
+                            <img src="Card-provider/CARD.png" alt="Card Logo" class="card-logo" id="card-logo">
+                        </div>
+                    </div>
+                    <div class="card_date_cvv_con">
+                        <div>
+                            <label for="expiry-date" class="card_num_lab">Expiry:</label>
+                            <input type="text" id="expiry-date" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY" required>
+                        </div>
+                        <div>
+                            <label for="cvv" class="card_num_lab">CVV:</label>
+                            <input type="text" id="cvvint" maxlength="3" autocomplete="cc-csc" placeholder="000" required>
+                        </div>
+                    </div>
+                    <div class="card_name_con">
+                        <label for="card-name" class="card_num_lab">Name on Card:</label>
+                        <input type="text" id="card-name" class="card_name_int" autocomplete="cc-name" required placeholder="Name on Card">
+                    </div>
+                    <div class="submit_btn" id="CARD_ent_sbt_btn">
+                        <button id="UPI_SBT_btn">Pay</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
