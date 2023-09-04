@@ -3,16 +3,6 @@
 const check_box = document.getElementById('checkbox_form_input');
 check_box.addEventListener('click', change);
 
-function change() {
-    if (check_box.checked) {
-        var status = document.getElementById('billing_form_con');
-        status.classList.add('collapse');
-    } else {
-        var status = document.getElementById('billing_form_con');
-        status.classList.remove('collapse');
-    }
-}
-
 {//Card Enetery
     const cardNumberInput = document.getElementById('card-number');
 const expiryDateInput = document.getElementById('expiry-date');
@@ -53,4 +43,23 @@ document.getElementById('payment-form').addEventListener('submit', function (eve
     event.preventDefault();
     // Add your payment processing or validation logic here
 });
+}
+
+
+
+
+
+//Functions
+function change() {
+    if (check_box.checked) {
+        var status = document.getElementById('billing_form_con');
+        status.classList.add('collapse');
+    } else {
+        var status = document.getElementById('billing_form_con');
+        status.classList.remove('collapse');
+    }
+}
+
+function netbankother() {
+    if(document.getElementById('checkbox6') = checked)
 }

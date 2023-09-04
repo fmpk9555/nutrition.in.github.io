@@ -198,8 +198,7 @@
                     <button id="UPI_SBT_btn">Pay</button>
                 </div>
             </div>
-
-            <div id="card_ent" class="">
+            <div id="card_ent" class="collapse_pay">
                 <form id="payment-form">
                     <div class="card_num_con">
                         <div class="lab_logo">
@@ -228,6 +227,90 @@
                         <button id="UPI_SBT_btn">Pay</button>
                     </div>
                 </form>
+            </div>
+            <div id="wallet_int" class="collapse_pay">
+                <div id="app_list">
+                    <div class="app_con"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
+                    <div class="app_con"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></div>
+                    <div class="app_con"><img src="Payment-options/phonepe.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></div>
+                    <div class="app_con"><img src="Payment-options/mobikwik.png" alt="Phone_pay_logo"><h1>Mobikwik</h1></div>
+                    <div class="app_con"><img src="Payment-options/amazon.png" alt="Phone_pay_logo"><h1>Amazon</h1></div>
+                </div>
+                <div id="app_list">
+                    <div class="app_con"><img src="Payment-options/bhimupi.png" alt="Bhim_UPI_logo"><h1>BHIM</h1></div>
+                    <div class="app_con"><img src="Payment-options/paypl.png" alt="Paypal_logo"><h1>PayPal</h1></div>
+                    <div class="app_con"><img src="Payment-options/payzapp.png" alt="payzapp_logo"><h1>PayZapp</h1></div>
+                    <div class="app_con"><img src="Payment-options/yonosbi.png" alt="yonosbi_logo"><h1>Yono</h1></div>
+                </div>
+            </div>
+            <div id="netbanking_int">
+                <div class="Bank_logo_con">
+                    <input type="radio" name="net_bank_int" id="checkbox" style="display: none;"><label for="checkbox" class="image-label"><img class="bank_logo" src="Banks/627ccdf71b2e263b45696ab8.png" alt="Kotak"></label>
+                    <input type="radio" name="net_bank_int" id="checkbox1" style="display: none;"><label for="checkbox1" class="image-label"><img class="bank_logo" src="Banks/AXIS.png" alt="Axis"></label>
+                    <input type="radio" name="net_bank_int" id="checkbox2" style="display: none;"><label for="checkbox2" class="image-label"><img class="bank_logo" src="Banks/HDFC.png" alt="HDFC"></label>
+                    <input type="radio" name="net_bank_int" id="checkbox3" style="display: none;"><label for="checkbox3" class="image-label"><img class="bank_logo" src="Banks/ICICI.png" alt="ICICI"></label>
+                    <input type="radio" name="net_bank_int" id="checkbox4" style="display: none;"><label for="checkbox4" class="image-label"><img class="bank_logo" src="Banks/SBI.png" alt="SBI"></label>
+                </div>
+                <div class="Bank_logo_con">
+                    <input type="radio" name="net_bank_int" id="checkbox5" style="display: none;"><label for="checkbox5" class="image-label"><img class="bank_logo" src="Banks/PNB.png" alt="ICICI"></label>
+                    <input type="radio" name="net_bank_int" id="checkbox6" style="display: none;"><label for="checkbox6" class="image-label"><img class="bank_logo" src="Banks/other.png" alt="PNB"></label>
+                    </div>
+                <div id="net_bank_list_con">
+                    <label for="Bank_name">Please select the Bank:</label>
+                    <select name="netBankingBank" id="netBankingBank" class="span12 noradius payoptselect valid">
+                        <option value="">Select Bank</option>
+                        <option id="" value="State Bank of India" class="ACTI N">State Bank of India</option>
+                        <option id="" value="ICICI Bank" class="ACTI N">ICICI Bank</option>
+                        <option id="" value="HDFC Bank" class="ACTI N">HDFC Bank</option>
+                        <option id="" value="Kotak Mahindra Bank" class="ACTI N">Kotak Mahindra Bank</option>
+                        <option id="" value="Axis Bank" class="ACTI N">Axis Bank</option>
+                        <option id="" value="Airtel Payments Bank" class="ACTI N">Airtel Payments Bank</option>
+                        <option id="" value="AU SFB Corporate Net Banking" class="ACTI N">AU SFB Corporate Net Banking</option>
+                        <option id="" value="AU Small Finance Bank" class="ACTI N">AU Small Finance Bank</option>
+                        <option id="" value="Bandhan Bank" class="ACTI N">Bandhan Bank</option>
+                        <option id="" value="Bank of Baroda Corporate" class="ACTI N">Bank of Baroda Corporate</option>
+                        <option id="" value="Bank of Baroda Retail" class="ACTI N">Bank of Baroda Retail</option>
+                        <option id="" value="Bank of India" class="ACTI N">Bank of India</option>
+                        <option id="" value="Bank of Maharashtra" class="ACTI N">Bank of Maharashtra</option>
+                        <option id="" value="Canara Bank" class="ACTI N">Canara Bank</option>
+                        <option id="" value="Catholic Syrian Bank" class="ACTI N">Catholic Syrian Bank</option>
+                        <option id="" value="Central Bank of India" class="ACTI N">Central Bank of India</option>
+                        <option id="" value="City Union Bank" class="ACTI N">City Union Bank</option>
+                        <option id="" value="Cosmos Bank" class="ACTI N">Cosmos Bank</option>
+                        <option id="" value="DCB Bank" class="ACTI N">DCB Bank</option>
+                        <option id="" value="DCB BANK Business" class="ACTI N">DCB BANK Business</option>
+                        <option id="" value="Deutsche Bank" class="ACTI N">Deutsche Bank</option>
+                        <option id="" value="Dhanlaxmi Bank" class="ACTI N">Dhanlaxmi Bank</option>
+                        <option id="" value="Equitas Small Finance Bank" class="ACTI N">Equitas Small Finance Bank</option>
+                        <option id="" value="Federal Bank" class="ACTI N">Federal Bank</option>
+                        <option id="" value="HSBC" class="ACTI N">HSBC</option>
+                        <option id="" value="IDBI Bank" class="ACTI N">IDBI Bank</option>
+                        <option id="" value="IDFC FIRST Bank" class="ACTI N">IDFC FIRST Bank</option>
+                        <option id="" value="Indian Bank" class="ACTI N">Indian Bank</option>
+                        <option id="" value="Indian Overseas Bank" class="ACTI N">Indian Overseas Bank</option>
+                        <option id="" value="IndusInd Bank" class="ACTI N">IndusInd Bank</option>
+                        <option id="" value="Jammu and kashmir Bank" class="ACTI N">Jammu and kashmir Bank</option>
+                        <option id="" value="Jana Small Finance Bank" class="ACTI N">Jana Small Finance Bank</option>
+                        <option id="" value="JANATA SAHAKARI BANK LTD PUNE" class="ACTI N">JANATA SAHAKARI BANK LTD PUNE</option>
+                        <option id="" value="Karnataka Bank" class="ACTI N">Karnataka Bank</option>
+                        <option id="" value="Karur Vysya Bank" class="ACTI N">Karur Vysya Bank</option>
+                        <option id="" value="NKGSB Co-op Bank Ltd" class="ACTI N">NKGSB Co-op Bank Ltd</option>
+                        <option id="" value="Punjab National Bank [Corporate]" class="ACTI N">Punjab National Bank [Corporate]</option>
+                        <option id="" value="Punjab National Bank [Retail]" class="ACTI N">Punjab National Bank [Retail]</option>
+                        <option id="" value="RBL Bank" class="ACTI N">RBL Bank</option>
+                        <option id="" value="Saraswat Bank" class="ACTI N">Saraswat Bank</option>
+                        <option id="" value="South Indian Bank" class="ACTI N">South Indian Bank</option>
+                        <option id="" value="Standard Chartered Bank" class="ACTI N">Standard Chartered Bank</option>
+                        <option id="Suryoday Small Finance Bank Ltd" value="Suryoday Small Finance Bank Ltd" class="DOWN N">Suryoday Small Finance Bank Ltd</option>
+                        <option id="" value="SVC Co-operative Bank Ltd" class="ACTI N">SVC Co-operative Bank Ltd</option>
+                        <option id="" value="Tamilnad Mercantile Bank" class="ACTI N">Tamilnad Mercantile Bank</option>
+                        <option id="" value="UCO Bank" class="ACTI N">UCO Bank</option>
+                        <option id="" value="UCO Bank Corporate Account" class="ACTI N">UCO Bank Corporate Account</option>
+                        <option id="" value="Ujjivan Small Finance Bank" class="ACTI N">Ujjivan Small Finance Bank</option>
+                        <option id="" value="Union Bank of India" class="ACTI N">Union Bank of India</option>
+                        <option id="" value="YES Bank" class="ACTI N">YES Bank</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>

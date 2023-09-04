@@ -395,7 +395,8 @@ background-color: var(--light);
   z-index: -1;
 }
 
-#upi_ent {
+#upi_ent,
+#wallet_int {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -422,15 +423,21 @@ background-color: var(--light);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 0px 0px var(--light) inset
+  box-shadow: 0 0 0px 0px var(--light) inset;
 }
 
 .app_con:hover {
-  box-shadow: 0 0 50px 5px var(--light) inset
+  box-shadow: 0 0 50px 5px var(--light) inset;
+}
+
+.app_con:active {
+  box-shadow: 0 0 100px 100px var(--light) inset;
 }
 
 .app_con img {
   width: 4rem;
+  min-height: 4rem;
+  object-fit: contain;
   transition: 0.3s ease;
 }
 
@@ -567,7 +574,6 @@ background-color: var(--light);
 .card_name_con {
   width: 100%;
   display: flex;
-  align-items: center;
 }
 
 .card_name_int {
@@ -584,6 +590,76 @@ background-color: var(--light);
   width: 100%;
 }
 
+#netbanking_int {
+  width: 90%;
+  margin: auto;
+}
+
+.Bank_logo_con {
+  width: 100%;
+  display: flex;
+  height: 80px;
+  background-color: #2196F3;
+}
+
+.image-label {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.image-label img {
+  width: 100%;
+  object-fit: scale-down;
+  height: 50px;
+  padding: 5px;
+  border: 2px solid var(--light);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+#checkbox:checked + .image-label img {
+  background-color: white;
+}
+#checkbox1:checked + .image-label img {
+  background-color: white;
+}
+#checkbox2:checked + .image-label img {
+  background-color: white;
+}
+#checkbox3:checked + .image-label img {
+  background-color: white;
+}
+#checkbox4:checked + .image-label img {
+  background-color: white;
+}
+#checkbox5:checked + .image-label img {
+  background-color: white;
+}
+#checkbox6:checked + .image-label img {
+  background-color: white;
+}
+
+#net_bank_list_con {
+  display: inline;
+}
+
+#net_bank_list_con label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#net_bank_list_con select {
+  font-size: 1rem;
+  width: 79.1%;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
 /* Customize the label (the container) */
 .container {
   display: block;
@@ -596,6 +672,15 @@ background-color: var(--light);
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/*pure cosmetics:*/
+img {
+  width: 150px;
+  height: 150px;
+}
+label {
+  margin: 10px;
 }
 
 /* Hide the browser's default checkbox */
