@@ -61,5 +61,7 @@ function change() {
 }
 
 function netbankother() {
-    if(document.getElementById('checkbox6') = checked)
+    if(document.getElementById('checkbox6') = checked) {
+        
+    }
 }
