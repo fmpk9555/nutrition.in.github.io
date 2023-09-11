@@ -172,24 +172,24 @@
                 <div class="cont_values_sep"><h3>Delivery Fees:</h3><h3>Rs. 240/-</h3></div>
                 <div class="divider"></div>
                 <div class="cont_values_sep payable"><h3>Payable:</h3><h3>Rs. 5890/-</h3></div>
-                <div class="cont_values_sep payable"><input type="text" id="coupon_inp" required> <button id="coupon_btn">Apply</button></div>
+                <div class="cont_values_sep payable"><input type="text" id="coupon_inp" placeholder="Coupon Code" required> <button id="coupon_btn">Apply</button></div>
             </div>
         </div>
     </div>
     <div id="payment_method">
         <div id="pay_options">
-            <button class="Option_pay">UPI<p>(Unified Paym ents Interface)</p></button>
-            <button class="Option_pay">Pay Via Card</button>
-            <button class="Option_pay">Pay Via Wallet</button>
-            <button class="Option_pay">Netbanking</button>
-            <button class="Option_pay Bottom_btn">COD<p>(Cash On Delivery)</p></button>
+            <button class="Option_pay" id="UPI_BTN">UPI<p>(Unified Paym ents Interface)</p></button>
+            <button class="Option_pay" id="Card_BTN">Pay Via Card</button>
+            <button class="Option_pay" id="Wallet_BTN">Pay Via Wallet</button>
+            <button class="Option_pay" id="NetBank_BTN">Netbanking</button>
+            <button class="Option_pay Bottom_btn" id="COD_BTN">COD<p>(Cash On Delivery)</p></button>
         </div>
         <div id="options_entery">
-            <div id="upi_ent" class="collapse_pay">
+            <div id="upi_ent" class="option">
                 <div id="app_list">
-                    <div class="app_con"><img src="Payment-options/pngwing.com.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
-                    <div class="app_con"><img src="Payment-options/vecteezy_paytm-logo-icon-vector_19040306.png" alt="Paytm_logo"><h1>PayTM</h1></div>
-                    <div class="app_con"><img src="Payment-options/PhonePe_Icons_PNG_Image_vsb1hj.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></div>
+                    <div class="app_con"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
+                    <div class="app_con"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></div>
+                    <div class="app_con"><img src="Payment-options/phonepe.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></div>
                 </div>
                 <div id="upi_int" class="input_pay">
                     <label for="Upi_Id">UPI ID:</label><input type="text" name="UPI_ID" placeholder="example@yahoo.in">
@@ -198,7 +198,7 @@
                     <button id="UPI_SBT_btn">Pay</button>
                 </div>
             </div>
-            <div id="card_ent" class="collapse_pay">
+            <div id="card_ent" class="option collapse_pay">
                 <form id="payment-form">
                     <div class="card_num_con">
                         <div class="lab_logo">
@@ -228,7 +228,7 @@
                     </div>
                 </form>
             </div>
-            <div id="wallet_int" class="collapse_pay">
+            <div id="wallet_int" class="option collapse_pay">
                 <div id="app_list">
                     <div class="app_con"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
                     <div class="app_con"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></div>
@@ -243,19 +243,20 @@
                     <div class="app_con"><img src="Payment-options/yonosbi.png" alt="yonosbi_logo"><h1>Yono</h1></div>
                 </div>
             </div>
-            <div id="netbanking_int">
-                <div class="Bank_logo_con">
-                    <input type="radio" name="net_bank_int" id="checkbox" style="display: none;"><label for="checkbox" class="image-label"><img class="bank_logo" src="Banks/627ccdf71b2e263b45696ab8.png" alt="Kotak"></label>
-                    <input type="radio" name="net_bank_int" id="checkbox1" style="display: none;"><label for="checkbox1" class="image-label"><img class="bank_logo" src="Banks/AXIS.png" alt="Axis"></label>
-                    <input type="radio" name="net_bank_int" id="checkbox2" style="display: none;"><label for="checkbox2" class="image-label"><img class="bank_logo" src="Banks/HDFC.png" alt="HDFC"></label>
-                    <input type="radio" name="net_bank_int" id="checkbox3" style="display: none;"><label for="checkbox3" class="image-label"><img class="bank_logo" src="Banks/ICICI.png" alt="ICICI"></label>
-                    <input type="radio" name="net_bank_int" id="checkbox4" style="display: none;"><label for="checkbox4" class="image-label"><img class="bank_logo" src="Banks/SBI.png" alt="SBI"></label>
-                </div>
-                <div class="Bank_logo_con">
-                    <input type="radio" name="net_bank_int" id="checkbox5" style="display: none;"><label for="checkbox5" class="image-label"><img class="bank_logo" src="Banks/PNB.png" alt="ICICI"></label>
-                    <input type="radio" name="net_bank_int" id="checkbox6" style="display: none;"><label for="checkbox6" class="image-label"><img class="bank_logo" src="Banks/other.png" alt="PNB"></label>
+            <div id="netbanking_int" class="option collapse_pay">
+                <form action="get_bank_name_for_netbanking" id="form_netbanking">
+                    <div class="Bank_logo_con">
+                        <input type="radio" name="net_bank_int" id="checkbox" style="display: none;"><label for="checkbox" class="image-label"><img class="bank_logo" src="Banks/627ccdf71b2e263b45696ab8.png" alt="Kotak"></label>
+                        <input type="radio" name="net_bank_int" id="checkbox1" style="display: none;"><label for="checkbox1" class="image-label"><img class="bank_logo" src="Banks/AXIS.png" alt="Axis"></label>
+                        <input type="radio" name="net_bank_int" id="checkbox2" style="display: none;"><label for="checkbox2" class="image-label"><img class="bank_logo" src="Banks/HDFC.png" alt="HDFC"></label>
+                        <input type="radio" name="net_bank_int" id="checkbox3" style="display: none;"><label for="checkbox3" class="image-label"><img class="bank_logo" src="Banks/ICICI.png" alt="ICICI"></label>
+                        <input type="radio" name="net_bank_int" id="checkbox4" style="display: none;"><label for="checkbox4" class="image-label"><img class="bank_logo" src="Banks/SBI.png" alt="SBI"></label>
                     </div>
-                <div id="net_bank_list_con">
+                    <div class="Bank_logo_con">
+                        <input type="radio" name="net_bank_int" id="checkbox5" style="display: none;"><label for="checkbox5" class="image-label"><img class="bank_logo" src="Banks/PNB.png" alt="ICICI"></label>
+                        <input type="radio" name="net_bank_int" id="checkbox6" style="display: none;"><label for="checkbox6" class="image-label"><img class="bank_logo" src="Banks/other.png" alt="PNB"></label>
+                    </div>
+                    <div id="net_bank_list_con" class="collapse_pay">
                     <label for="Bank_name">Please select the Bank:</label>
                     <select name="netBankingBank" id="netBankingBank" class="span12 noradius payoptselect valid">
                         <option value="">Select Bank</option>
@@ -310,7 +311,14 @@
                         <option id="" value="Union Bank of India" class="ACTI N">Union Bank of India</option>
                         <option id="" value="YES Bank" class="ACTI N">YES Bank</option>
                     </select>
-                </div>
+                    </div>
+                    <div class="submit_btn" id="CARD_ent_sbt_btn">
+                        <button id="NetBank_SBT_btn">Pay</button>
+                    </div>
+                </form>
+            </div>
+            <div id="COD_int" class="option collapse_pay">
+                <h3 id="cod_message">Kindly pay the Amount of <strong>Rs. 5290/- </strong>to the delivery agent.</h3>
                 <div class="submit_btn" id="CARD_ent_sbt_btn">
                     <button id="NetBank_SBT_btn">Pay</button>
                 </div>

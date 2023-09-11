@@ -1,3 +1,25 @@
+{//for page effects
+    // Add event listeners to all payment method buttons
+document.getElementById("UPI_BTN").addEventListener("click", function() {
+    collapseDiv("UPI_BTN", "upi_ent");
+});
+
+document.getElementById("Card_BTN").addEventListener("click", function() {
+    collapseDiv("Card_BTN", "card_ent");
+});
+
+document.getElementById("Wallet_BTN").addEventListener("click", function() {
+    collapseDiv("Wallet_BTN", "wallet_int");
+});
+
+document.getElementById("NetBank_BTN").addEventListener("click", function() {
+    collapseDiv("NetBank_BTN", "netbanking_int");
+});
+
+document.getElementById("COD_BTN").addEventListener("click", function() {
+    collapseDiv("COD_BTN", "COD_int");
+});
+
 
 
 const check_box = document.getElementById('checkbox_form_input');
@@ -45,7 +67,27 @@ document.getElementById('payment-form').addEventListener('submit', function (eve
 });
 }
 
+{//net banking select collapse
+    const formNetbanking = document.getElementById('form_netbanking');
+    const netBankListCon = document.getElementById('net_bank_list_con');
 
+    formNetbanking.addEventListener('change', function() {
+        // Get the selected radio input within the form
+        const selectedInput = document.querySelector('input[name="net_bank_int"]:checked');
+
+        // Remove the 'collapse_pay' class initially
+        netBankListCon.classList.remove('collapse_pay');
+
+        // Check if the selected radio input is checkbox6
+        if (selectedInput && selectedInput.id === 'checkbox6') {
+            // If checkbox6 is selected, remove the 'collapse_pay' class again
+            netBankListCon.classList.remove('collapse_pay');
+        } else {
+            // If any other radio input is selected, add the 'collapse_pay' class
+            netBankListCon.classList.add('collapse_pay');
+        }
+    });
+}
 
 
 
@@ -61,7 +103,49 @@ function change() {
 }
 
 function netbankother() {
-    if(document.getElementById('checkbox6') = checked) {
-        
+    if(document.getElementById('checkbox6') = selected) {
+        document.getElementById('net_bank_list_con').textContent = "Ram";
+    } else {
+        document.getElementById('net_bank_list_con').textContent = "Shyam";
     }
+}
+
+function collapseDiv(clickedButtonId, divId) {
+    const clickedButton = document.getElementById(clickedButtonId);
+    const targetDiv = document.getElementById(divId);
+
+    // Add the 'collapse_pay' class to all divs except the target div
+    const allDivs = document.querySelectorAll("#options_entery .option");
+    allDivs.forEach((div) => {
+        if (div !== targetDiv) {
+            div.classList.add("collapse_pay");
+        } else if (div == targetDiv) {
+            div.classList.remove("collapse_pay");
+        }
+    });
+
+    // Remove the 'collapse_pay' class from the target div
+    targetDiv.classList.remove("collapse_pay");
+}
+}
+
+{//data fetch
+    const urlParams = new URLSearchParams(window.location.search);
+    const order_ID = urlParams.get('OrderId');
+    const invoice_no = urlParams.get('InvoiceNo');
+    const SHEET_ID = '1oKZkAlaECmEaYfXpqZ7Vo0EpxqQ-hfJ2GdqNLHE5vVI';
+    const API_KEY = 'AIzaSyCa_LiyI9rO2fdH93USdYjmIMk9k8vqQJs';
+    const sheet_name = 'Orders';
+    const range = "A3:AI";
+
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+        for(var i =0; i < data.values.length; i++) {
+            if(data.values[i][2] === order_ID){
+                console.log(data.values[i]);
+                break;
+            }
+        }
+    });
 }

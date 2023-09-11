@@ -188,7 +188,8 @@ background-color: var(--light);
 }
 
 .Address-con-sep select {
-  width: 33.1%;
+  width: 30%;
+  min-width: 254px;
   border: none;
   outline: none;
   padding: 10px;
@@ -335,6 +336,7 @@ background-color: var(--light);
 #payment_method {
   width: 100%;
   margin-top: 30px;
+  height: 310px;
   background-color: var(--p2);
   border: 5px var(--gold) solid;
   border-radius: 10px;
@@ -368,7 +370,7 @@ background-color: var(--light);
 }
 
 .Option_pay:active {
-  background-color: rgba(255, 255, 255, 0.548);
+  background-color: rgba(255, 255, 255, 0.979);
 }
 
 .Option_pay p {
@@ -586,7 +588,7 @@ background-color: var(--light);
   border-radius: 5px;
   font-size: 1rem;
   margin-left: 10px;
-  width: 62.1%;
+  width: 59%;
 }
 
 #CARD_ent_sbt_btn {
@@ -595,6 +597,11 @@ background-color: var(--light);
 
 #netbanking_int {
   width: 90%;
+  margin: auto;
+}
+
+#netbanking_int form {
+  width: 100%;
   margin: auto;
 }
 
@@ -620,6 +627,10 @@ background-color: var(--light);
   margin-bottom: 10px;
   background-color: transparent;
   transition: background-color 0.3s ease;
+}
+
+.image-label img:hover {
+  background-color: rgba(255, 255, 255, 0.466);
 }
 
 #checkbox:checked + .image-label img {
@@ -664,6 +675,19 @@ background-color: var(--light);
   border: none;
   outline: none;
 }
+
+#COD_int {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+#COD_int h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+
 
 /* Customize the label (the container) */
 .container {
