@@ -10,9 +10,14 @@ var date_time = 0;
 var InvoiceNo = 0;
 var orderId = 0;
 var Delivery = 300;
-var Discount = 10;
+var Discount = 15;
 var TotalSku = [];
 var dis_and_pay = [];
+
+var cartvalue = 0;
+var flatoff = 0;
+var coupon = 0;
+
 
 const sheet_name = 'Cart';
 const range = 'A2:L';
@@ -98,6 +103,7 @@ fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_
     }
     const write = document.getElementById('sum-of');
     write.textContent = totalprice.toFixed(2);
+    cartvalue = totalprice.toFixed(2);
 });
 
 const D_charge = document.getElementById('D-charge');
@@ -118,8 +124,10 @@ function calculate() {
 
     const D_discount = document.getElementById('discount-D');
     D_discount.textContent = ((total_final/100)*Discount).toFixed(2);
+    flatoff = ((total_final/100)*Discount).toFixed(2);
 
     var C_discount = document.getElementById('coupon-input').value;
+    coupon = document.getElementById('coupon-input').value;
 
     const show = document.getElementById('show-dis2');
     show.textContent = ' (' + C_discount + '%)';
@@ -185,24 +193,22 @@ async function orderID_IvoiceNo () {
 
 async function Check_out() {
     await getDateTime();
-    dis_and_pay[0] = totalprice.toFixed(2);
-    dis_and_pay[1] = ((total_final/100)*Discount).toFixed(2);
-    dis_and_pay[2] = document.getElementById('coupon-input').value;
-    dis_and_pay[3] = ((totalprice/100)*dis_and_pay[2]).toFixed(2);
-    dis_and_pay[4] = Delivery;
-    dis_and_pay[5] = ((totalprice - ((totalprice/100)*Discount) - ((totalprice/100)*dis_and_pay[0]))+Delivery).toFixed(2);
+    dis_and_pay[0] = document.getElementById('coupon-input').value;
+    dis_and_pay[1] = ((totalprice/100)*dis_and_pay[0]).toFixed(2);
+    dis_and_pay[2] = ((totalprice - ((totalprice/100)*Discount) - ((totalprice/100)*dis_and_pay[0]))+Delivery).toFixed(2);
     for (var j = 0; j < TotalSku.length; j++) {
         TotalSku[j][1] = date_time;
         TotalSku[j][2] = parseFloat(orderId) + 1;
         TotalSku[j][3] = parseFloat(InvoiceNo) + 1;
     }
 
-    TotalSku[0][13] = dis_and_pay[0];
-    TotalSku[0][14] = dis_and_pay[1];
-    TotalSku[0][15] = dis_and_pay[2];
-    TotalSku[0][16] = dis_and_pay[3];
-    TotalSku[0][17] = dis_and_pay[4];
-    TotalSku[0][18] = dis_and_pay[5];
+    TotalSku[0][13] = cartvalue;
+    TotalSku[0][14] = flatoff;
+    TotalSku[0][15] = dis_and_pay[0];
+    TotalSku[0][16] = dis_and_pay[1];
+    TotalSku[0][17] = Delivery.toFixed(2);
+    TotalSku[0][18] = dis_and_pay[2];
+    
 }; 
 
 function writeOrder () {

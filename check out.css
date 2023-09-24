@@ -289,6 +289,10 @@ background-color: var(--light);
   color:rgba(41, 41, 41, 0.712)
 }
 
+#final_value h3 {
+  font-size: 1rem ;
+}
+
 .cont_values_sep {
   display: flex;
   justify-content: space-between;
@@ -303,7 +307,6 @@ background-color: var(--light);
 
 #coupon_inp {
   width: 55%;
-  background-color: white;
   border: none;
   outline: none;
   padding: 10px;

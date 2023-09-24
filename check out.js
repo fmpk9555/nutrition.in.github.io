@@ -1,3 +1,8 @@
+const urlParams = new URLSearchParams(window.location.search);
+const order_ID = urlParams.get('OrderId');
+const invoice_no = urlParams.get('InvoiceNo');
+var row_id = 0;
+
 {//for page effects
     // Add event listeners to all payment method buttons
 document.getElementById("UPI_BTN").addEventListener("click", function() {
@@ -130,13 +135,10 @@ function collapseDiv(clickedButtonId, divId) {
 }
 
 {//data fetch
-    const urlParams = new URLSearchParams(window.location.search);
-    const order_ID = urlParams.get('OrderId');
-    const invoice_no = urlParams.get('InvoiceNo');
     const SHEET_ID = '1oKZkAlaECmEaYfXpqZ7Vo0EpxqQ-hfJ2GdqNLHE5vVI';
     const API_KEY = 'AIzaSyCa_LiyI9rO2fdH93USdYjmIMk9k8vqQJs';
     const sheet_name = 'Orders';
-    const range = "A3:AI";
+    const range = "A2:AI";
 
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
     .then(response => response.json())
@@ -144,8 +146,94 @@ function collapseDiv(clickedButtonId, divId) {
         for(var i =0; i < data.values.length; i++) {
             if(data.values[i][2] === order_ID){
                 console.log(data.values[i]);
+                document.getElementById("checkfinal").textContent = "Rs. " + data.values[i][13] + "/-";
+                document.getElementById("checkdis").textContent = "Rs. " + data.values[i][14] + "/-";
+                document.getElementById("checkcdis").textContent = "Rs. " + data.values[i][16] + "/-";
+                document.getElementById("checkafees").textContent = "Rs. " + data.values[i][17] + "/-";
+                document.getElementById("checktpay").textContent = "Rs. " + data.values[i][18] + "/-";
+                row_id = i + 2;
+                console.log(row_id);
                 break;
             }
         }
+    });
+}
+
+{//get form data
+    document.getElementById("addressForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        // Fetch the form data
+        const formData = new FormData(event.target);
+
+        // Create an object to store the collected data
+        const addressData = {};
+
+        formData.forEach((value, key) => {
+            addressData[key] = value;
+        });
+
+        console.log(addressData);
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "put",
+            headers: myHeaders,
+            redirect: "follow",
+            body: JSON.stringify({
+                "row_id":row_id,
+                "ship_Customer Name": addressData["ship_Customer Name"],
+                "ship_Mobile no.": addressData["ship_Mobile no."],
+                "ship_Email ID": addressData["ship_Email ID"],
+                "ship_Address": addressData["ship_Address"],
+                "ship_City": addressData["ship_City"],
+                "ship_State": addressData["ship_State"],
+                "ship_Pincode": addressData["ship_Pincode"],
+                "ship_Country": addressData["ship_Country"],
+                "bil_Customer Name": addressData["bil_Customer Name"],
+                "bil_Mobile no.": addressData["bil_Mobile no."],
+                "bil_Email ID": addressData["bil_Email ID"],
+                "bil_Address": addressData["bil_Address"],
+                "bil_City": addressData["bil_City"],
+                "bil_State": addressData["bil_State"],
+                "bil_Pincode": addressData["bil_Pincode"],
+                "bil_Country": addressData["bil_Country"],
+                "Notes": addressData["del_notes"]
+            })
+        };
+
+        fetch("https://v1.nocodeapi.com/kumarpintu9555/google_sheets/OAJVjKyAUvWCdxrY?tabId=Orders", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+        const element = document.getElementById("btn_con");
+        element.scrollIntoView({ behavior: "smooth" });
+    })
+}
+
+{//confirm order and update payment method
+    document.getElementById("COD_SBT_btn").addEventListener("click", function(event) {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "put",
+            headers: myHeaders,
+            redirect: "follow",
+            body: JSON.stringify({
+                "row_id":row_id,
+                "Paymet Method": "COD",
+                "Payment ref. No.": invoice_no,
+                "Status": "Complete"
+            })
+        };
+
+        fetch("https://v1.nocodeapi.com/kumarpintu9555/google_sheets/OAJVjKyAUvWCdxrY?tabId=Orders", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+        const element = document.getElementById("btn_con");
+        element.scrollIntoView({ behavior: "smooth" });
     });
 }
