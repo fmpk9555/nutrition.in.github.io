@@ -80,37 +80,112 @@
     })
   };
 
-  {
+  {//testimonial
     const range = 'A45:E49';
 
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
       console.log(data.values[0]);
-      //testimonial 1
-      const test_1_userimage = document.querySelector('#testimonial_1 .test_person_id .test_img_con');
-      test_1_userimage.style.backgroundImage = `url(${data.values[0][1]})`;
-      test_1_userimage.style.backgroundSize = 'cover';
+      { const testimonial_con = document.getElementById('testimonial_con');
+        for (let i = 0; i < 5; i++) {
+          const testimonial_each_con = document.createElement('div');
+          testimonial_each_con.setAttribute("id", `testimonial_${i}`);
+          testimonial_each_con.classList.add('testimonial');
 
-      const test_1_username = document.querySelector('#testimonial_1 .test_person_id div h1');
-      test_1_username.textContent = data.values[0][0];
+          const test_person_id = document.createElement('div');
+          test_person_id.classList.add('test_person_id');
+          testimonial_each_con.appendChild(test_person_id);
 
-      const test_1_userrating = document.querySelector('#testimonial_1 .test_person_id div .test_stars_con');
-      for (let i = 0; i < 5; i++) {
-        var star = document.createElement('div');
-        star.classList.add('stars');
-        if (i < data.values[0][2]){
-          star.classList.add('golden');
+          const test_image_con = document.createElement('div');
+          test_image_con.classList.add('test_img_con');
+          test_image_con.style.backgroundImage = `url(${data.values[i][1]})`;
+          test_image_con.style.backgroundSize = 'cover';
+          test_person_id.appendChild(test_image_con);
+
+          const test_name_rate_con = document.createElement('div');
+
+          const h1 = document.createElement('h1');
+          h1.textContent = data.values[i][0];
+          test_name_rate_con.appendChild(h1);
+
+          const test_stars_con = document.createElement('div');
+          test_stars_con.classList.add('test_stars_con');
+          for (let j = 0; j < 5; j++) {
+            var star = document.createElement('div');
+            star.classList.add('stars');
+            if (j < data.values[i][2]){
+              star.classList.add('golden');
+            }
+            test_stars_con.appendChild(star);
+          }
+          test_name_rate_con.appendChild(test_stars_con);
+
+          test_person_id.appendChild(test_name_rate_con);
+
+          const test_review_pr_name = document.createElement('div');
+          test_review_pr_name.classList.add('test_review_pr_name');
+
+          const test_rew = document.createElement('div');
+          const h2 = document.createElement('h2');
+          h2.textContent = data.values[i][3];
+          test_rew.appendChild(h2);
+          test_review_pr_name.appendChild(test_rew);
+
+          const para_test = document.createElement('div');
+          const para = document.createElement('p');
+          para.textContent =  '"'+data.values[i][4]+'"';
+          para_test.appendChild(para);
+          test_review_pr_name.appendChild(para_test);
+
+          testimonial_each_con.appendChild(test_review_pr_name);
+          testimonial_con.appendChild(testimonial_each_con);
         }
-        test_1_userrating.appendChild(star);
+        {
+          function smoothScroll(element, distance, duration, pauseDuration) {
+            const totalWidth = element.scrollWidth;
+            let scrollPosition = 0;
+          
+            function scroll() {
+              if (scrollPosition + element.clientWidth <= totalWidth) {
+                const start = scrollPosition;
+                const startTime = performance.now();
+          
+                function animateScroll(timestamp) {
+                  const currentTime = timestamp - startTime;
+                  const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          
+                  scrollPosition = start + distance * easeInOutQuad(currentTime / duration);
+                  element.scrollLeft = scrollPosition;
+          
+                  if (currentTime < duration) {
+                    requestAnimationFrame(animateScroll);
+                  } else {
+                    setTimeout(scroll, pauseDuration);
+                  }
+                }
+          
+                requestAnimationFrame(animateScroll);
+              } else {
+                // If we've reached the end, reset to the beginning
+                scrollPosition = 0;
+                element.scrollLeft = scrollPosition;
+                setTimeout(scroll, pauseDuration);
+              }
+            }
+          
+            setTimeout(scroll, 3000); // Start scrolling after a 3-second delay
+          }
+          const scrollDistance = 915;
+          const scrollDuration = 5000;
+          const pauseDuration = 3000;
+          
+          smoothScroll(testimonial_con, scrollDistance, scrollDuration, pauseDuration);
+          
+          
+        }
       }
-
-      const test_1_userrewheading = document.querySelector('#testimonial_1 .test_review_pr_name div h2');
-      test_1_userrewheading.textContent = data.values[0][3];
-
-      const test_1_userrewtext = document.querySelector('#testimonial_1 .test_review_pr_name div .para_test p');
-      test_1_userrewtext.textContent = '"'+data.values[0][4]+'"';
-    }) 
+    })
   }
 
 {const range = 'B12:I17';
@@ -129,20 +204,29 @@
           const productElement = document.createElement('div');
           productElement.classList.add('product');
 
-          const discardElement = document.createElement('div');
-          discardElement.classList.add('discard');
-          const discardtElement = document.createElement('h2');
-          discardtElement.classList.add('dis-card-text');
-          discardtElement.textContent = dis + '%' + ' OFF';
-          discardElement.appendChild(discardtElement);
-          productElement.appendChild(discardElement);
+          const product_image_con = document.createElement('div');
+          product_image_con.classList.add('product_image_con');
 
-          const imgeElement = document.createElement('div');
-          imgeElement.classList.add('img-con');
+          const discardElement = document.createElement('div');
+          discardElement.classList.add('dis_text');
+          const discardtElement = document.createElement('h3');
+          discardtElement.textContent = dis + '%';
+          const discardpElement = document.createElement('p');
+          discardpElement.textContent = 'OFF';
+          discardElement.appendChild(discardpElement);
+          discardElement.appendChild(discardtElement);
+          product_image_con.appendChild(discardElement);
+
+          const  product_wish = document.createElement('div');
+          product_wish.classList.add('product_wish');
+          product_wish.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
+          product_image_con.appendChild(product_wish);
+
           const imageElement = document.createElement('img');
           imageElement.src = imageUrl;
-          imgeElement.appendChild(imageElement);
-          productElement.appendChild(imgeElement);
+          product_image_con.appendChild(imageElement);
+
+          productElement.appendChild(product_image_con);
 
           const BRAND_cElement = document.createElement('div');
           BRAND_cElement.classList.add('Brand_c');
@@ -249,7 +333,7 @@
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
         .then(response => response.json())
         .then(data => {
-        const productList = document.getElementById('new-launch');
+        const productList = document.getElementById('new-launc');
           
       
           data.values.forEach(product => {
@@ -415,14 +499,14 @@
 
   { //Product heading button for top selling
     const buttonRight = document.getElementById('button-right-top');
-      const buttonLeft = document.getElementById('button-left-top');
+    const buttonLeft = document.getElementById('button-left-top');
 
-      buttonRight.onclick = function () {
-        document.getElementById('top-selling').scrollLeft += 150 ;
-      };
-      buttonLeft.onclick = function () {
-        document.getElementById('top-selling').scrollLeft -= 150;
-      };
+    buttonRight.onclick = function () {
+      document.getElementById('top-selling').scrollLeft += 150 ;
+    };
+    buttonLeft.onclick = function () {
+      document.getElementById('top-selling').scrollLeft -= 150;
+    };
   }
 
   { //Product heading button for new launch

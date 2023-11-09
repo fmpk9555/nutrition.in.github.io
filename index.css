@@ -10,6 +10,7 @@
     --p2: rgb(231, 205, 120);
     --gold: rgb(222, 182, 75);
     --font: 'Montserrat', sans-serif;
+    --max-width: 95vw;
 }
 
 html {
@@ -30,10 +31,7 @@ html {
 
 /*scroll bar end*/
 
-#all-content {
-  max-width: 95vw;
-  margin: auto;
-}
+
 /*Hearder and Navigation bar */
 
 #nav-bar {
@@ -113,6 +111,7 @@ html {
   transition: 0.5s ease-out;
   transform: none;
   z-index: 0;
+  cursor: pointer;
 }
 
 #cross_icon {
@@ -121,6 +120,7 @@ html {
   opacity: 0;
   transform: rotate(-135deg);
   transition: 0.5s ease-out;
+  cursor: pointer;
 }
 
 #nav_search_id {
@@ -145,7 +145,7 @@ html {
 
 #banner {
   height: 500px;
-  width: 100%;
+  width: var(--max-width);
   margin: auto;
   display: flex;
   align-items: center;
@@ -211,12 +211,13 @@ html {
 /*Testimonials Star*/
 
 #testimonial_con {
-  width: 100%;
   height: 350px;
-  margin: 2% 0;
+  margin: 2% auto;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
+  width: var(--max-width);
+  border-radius: 10px;
 }
 
 #testimonial_con::-webkit-scrollbar {
@@ -228,6 +229,7 @@ html {
   height: 340px;
   min-width: 900px;
   margin: auto 10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,12 +285,6 @@ html {
   margin-bottom: 5px;
 }
 
-#testimonial_2 h1 {
-  transform: rotate(180deg);
-  font-size: 110px;
-  background-color: aqua;
-}
-
 .end_com_test {
   clip-path: polygon(50% 0%, 26% 33%, 41% 36%, 49% 57%, 40% 71%, 21% 77%, 7% 69%, 0 53%, 5% 34%, 29% 0);
   height: 100px;
@@ -300,8 +296,159 @@ html {
   display: flex;
   position: relative;
 }
+/*Testimonial Ends*/
+/*Top Selling Starts */
 
-span {
+#top-selling-con {
+  width: 100%;
+  padding: 0 2.5vw;
+}
+
+#top-selling-title {
+  width: var(--max-width);  
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#top-selling-title .arrow {
+  width: 100px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+#top-selling-title:hover .arrow {
+  background-color: var(--p1);
+}
+
+#top-selling-title .arrow i {
+  transform: scale(1.3);
+}
+
+.product-list {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.product-list::-webkit-scrollbar {
+  height: 0;
+}
+
+.product {
+  width: 300px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.product:hover {
+  background-color: white;
+}
+
+.product_wish {
+  position: absolute;
+  right: -30px;
+  top: 10px;
+  transition: 0.3s ease;
+}
+
+.product:hover .product_wish {
+  right: 10px;
+  top: 10px;
+}
+
+.product .product_image_con {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid white;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: 0.3s ease;
+}
+
+.product:hover .product_image_con {
+  border: solid 1px var(--p1);
+}
+
+.dis_text {
+  position: absolute;
+  background-color: var(--p1);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: -30px;
+  left: -30px;
+  color: red;
+}
+
+.dis_text h3 {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.dis_text p {
+  position: absolute;
+  top: 60px;
+  left: 38px;
+}
+
+.product .product_image_con img {
+  width: 300px;
+  height: 300px;
+}
+
+.product_data {
+  width: 100%;
+}
+
+.product_title {
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+
+.price_rating {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.pricing {
+  text-align: center;
+}
+
+.pricing .mrp {
+  font-size: 0.8rem;
+  text-decoration: line-through;
+}
+
+.pricing .selling_p {
   font-size: 1rem;
-  transform: scale(3);
+
+}
+
+.rating_stars {
+  display: flex;
+  height: 20px;
+  margin: auto;
 }
