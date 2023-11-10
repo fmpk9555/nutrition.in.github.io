@@ -188,274 +188,192 @@
     })
   }
 
-{const range = 'B12:I17';
-  const R_sign = "Rs. ";
-    
-  fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
-      .then(response => response.json())
-      .then(data => {
+  {//Top Selling
+    const range = 'B12:I17';
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
       const productList = document.getElementById('top-selling');
         
     
-        data.values.forEach(product => {
-          const [SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
-          
+      data.values.forEach(product => {
+        const [SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
+        
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+
+        const product_image_con = document.createElement('div');
+        product_image_con.classList.add('product_image_con');
+
+        const discardElement = document.createElement('div');
+        discardElement.classList.add('dis_text');
+        const discardtElement = document.createElement('h3');
+        discardtElement.textContent = dis + '%';
+        const discardpElement = document.createElement('p');
+        discardpElement.textContent = 'OFF';
+        discardElement.appendChild(discardpElement);
+        discardElement.appendChild(discardtElement);
+        product_image_con.appendChild(discardElement);
+
+        const  product_wish = document.createElement('div');
+        product_wish.classList.add('product_wish');
+        product_wish.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
+        product_image_con.appendChild(product_wish);
+
+        const imageElement = document.createElement('img');
+        imageElement.src = imageUrl;
+        product_image_con.appendChild(imageElement);
+
+        productElement.appendChild(product_image_con);
+
+        const product_data = document.createElement('div');
+        product_data.classList.add('product_data');
+
+        const product_title = document.createElement('div');
+        product_title.classList.add('product_title');
+        const Brand_c = document.createElement('h3');
+        Brand_c.classList.add('Brand_c');
+        Brand_c.textContent = Brand;
+        product_title.appendChild(Brand_c);
+        const pr_title = document.createElement('h1');
+        pr_title.textContent = title.slice(0, 50)+'...';
+        product_title.appendChild(pr_title);
+        product_data.appendChild(product_title);
+
+        const price_rating = document.createElement('div');
+        price_rating.classList.add('price_rating');
+
+        const pricing = document.createElement('div');
+        pricing.classList.add('pricing');
+
+        const mrp_C = document.createElement('p');
+        mrp_C.classList.add('mrp');
+        mrp_C.textContent = 'Rs. ' + mrp + '/-';
+        pricing.appendChild(mrp_C);
+
+        const selling_p = document.createElement('h3');
+        selling_p.classList.add('selling_p');
+        selling_p.textContent = 'Rs. ' + price + '/-';
+        pricing.appendChild(selling_p);
+
+        price_rating.appendChild(pricing);
+
+        const rating_stars = document.createElement('div');
+        rating_stars.classList.add('rating_stars');
+        for (var i = 0; i < 5; i++){
+            const stars = document.createElement('div');
+            stars.classList.add('stars');
+            if (i < rating){
+              stars.classList.add('golden');
+            }
+            rating_stars.appendChild(stars);
+        }
+        price_rating.appendChild(rating_stars);
+
+        product_data.appendChild(price_rating);
+        productElement.appendChild(product_data);
+        productList.appendChild(productElement);
     
-          const productElement = document.createElement('div');
-          productElement.classList.add('product');
-
-          const product_image_con = document.createElement('div');
-          product_image_con.classList.add('product_image_con');
-
-          const discardElement = document.createElement('div');
-          discardElement.classList.add('dis_text');
-          const discardtElement = document.createElement('h3');
-          discardtElement.textContent = dis + '%';
-          const discardpElement = document.createElement('p');
-          discardpElement.textContent = 'OFF';
-          discardElement.appendChild(discardpElement);
-          discardElement.appendChild(discardtElement);
-          product_image_con.appendChild(discardElement);
-
-          const  product_wish = document.createElement('div');
-          product_wish.classList.add('product_wish');
-          product_wish.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
-          product_image_con.appendChild(product_wish);
-
-          const imageElement = document.createElement('img');
-          imageElement.src = imageUrl;
-          product_image_con.appendChild(imageElement);
-
-          productElement.appendChild(product_image_con);
-
-          const BRAND_cElement = document.createElement('div');
-          BRAND_cElement.classList.add('Brand_c');
-          const BrandElement = document.createElement('h3');
-          BrandElement.textContent = Brand;
-          BRAND_cElement.appendChild(BrandElement);
-          productElement.appendChild(BRAND_cElement);
-
-          const title_cElement = document.createElement('div');
-          title_cElement.classList.add('title_c');
-          const titleElement = document.createElement('h5');
-          titleElement.textContent = title.slice(0, 50)+'...';
-          title_cElement.appendChild(titleElement);
-          productElement.appendChild(title_cElement);
-
-          const pricing_cartElement = document.createElement('div');
-          pricing_cartElement.classList.add('pricing_cart');
-
-          const pricingElement = document.createElement('div');
-          pricingElement.classList.add('pricing');
-
-          const mrpElement = document.createElement('h5');
-          mrpElement.textContent = R_sign + mrp;
-          pricingElement.appendChild(mrpElement);
-    
-          const priceElement = document.createElement('h1');
-          priceElement.textContent = R_sign + price;
-          pricingElement.appendChild(priceElement);
-
-          pricing_cartElement.appendChild(pricingElement);
-
-          const pricing2Element = document.createElement('div');
-          pricing2Element.classList.add('pricing2');
-
-          const cart2_image = document.createElement('div');
-          cart2_image.classList.add('cart2-image');
-          if (rating == 1){
-            cart2_image.innerHTML = `
-            <div id="star">
-            <i class="fa-solid fa-star fa-1x checked star-1"></i>
-            <i class="fa-solid fa-star fa-1x star-2"></i>
-            <i class="fa-solid fa-star fa-1x star-3"></i>
-            <i class="fa-solid fa-star fa-1x star-4"></i>
-            <i class="fa-solid fa-star fa-1x star-5"></i>
-            </div>`
-            } else if (rating == 2) {
-              cart2_image.innerHTML = `
-              <div id="star">
-              <i class="fa-solid fa-star fa-1x checked star-1"></i>
-              <i class="fa-solid fa-star fa-1x checked star-2"></i>
-              <i class="fa-solid fa-star fa-1x star-3"></i>
-              <i class="fa-solid fa-star fa-1x star-4"></i>
-              <i class="fa-solid fa-star fa-1x star-5"></i>
-              </div>`
-              } else if (rating == 3) {
-                cart2_image.innerHTML = `
-                <div id="star">
-                <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                <i class="fa-solid fa-star fa-1x checked star-3"></i>
-                <i class="fa-solid fa-star fa-1x star-4"></i>
-                <i class="fa-solid fa-star fa-1x star-5"></i>
-                </div>`
-                } else if (rating == 4) {
-                  cart2_image.innerHTML = `
-                  <div id="star">
-                  <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                  <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                  <i class="fa-solid fa-star fa-1x checked star-3"></i>
-                  <i class="fa-solid fa-star fa-1x checked star-4"></i>
-                  <i class="fa-solid fa-star fa-1x star-5"></i>
-                  </div>`
-                  } else if (rating == 5) {
-                    cart2_image.innerHTML = `
-                    <div id="star">
-                    <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-3"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-4"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-5"></i>
-                    </div>`
-                    }
-          
-          const disElement = document.createElement('h2');
-          disElement.textContent = rating;
-          cart2_image.appendChild(disElement);
-          pricing2Element.appendChild(cart2_image);
-
-          pricing_cartElement.appendChild(pricing2Element);
-
-          productElement.appendChild(pricing_cartElement);
-          productList.appendChild(productElement);
-    
-          productElement.addEventListener('click', () => {
-            window.location.href = `product.html?SKU=${SKU}`;
-          });
+        productElement.addEventListener('click', () => {
+          window.location.href = `product.html?SKU=${SKU}`;
         });
       });
-    }
+    });
+  }
 
-  {const range = 'B20:I26';
-    const R_sign = "Rs. ";
-      
+  {//new-launch
+    const range = 'B20:I26';
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
-        .then(response => response.json())
-        .then(data => {
-        const productList = document.getElementById('new-launc');
-          
+    .then(response => response.json())
+    .then(data => {
+    const productList = document.getElementById('new-launch');
+    
+
+    data.values.forEach(product => {
+      const [SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
       
-          data.values.forEach(product => {
-            const [SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
-            
-      
-            const productElement = document.createElement('div');
-            productElement.classList.add('product');
-    
-            const discardElement = document.createElement('div');
-            discardElement.classList.add('discard');
-            const discardtElement = document.createElement('h2');
-            discardtElement.classList.add('dis-card-text');
-            discardtElement.textContent = dis + '%' + ' OFF';
-            discardElement.appendChild(discardtElement);
-            productElement.appendChild(discardElement);
-    
-            const imgeElement = document.createElement('div');
-            imgeElement.classList.add('img-con');
-            const imageElement = document.createElement('img');
-            imageElement.src = imageUrl;
-            imgeElement.appendChild(imageElement);
-            productElement.appendChild(imgeElement);
-    
-            const BRAND_cElement = document.createElement('div');
-            BRAND_cElement.classList.add('Brand_c');
-            const BrandElement = document.createElement('h3');
-            BrandElement.textContent = Brand;
-            BRAND_cElement.appendChild(BrandElement);
-            productElement.appendChild(BRAND_cElement);
-    
-            const title_cElement = document.createElement('div');
-            title_cElement.classList.add('title_c');
-            const titleElement = document.createElement('h5');
-            titleElement.textContent = title.slice(0, 50)+'...';
-            title_cElement.appendChild(titleElement);
-            productElement.appendChild(title_cElement);
-    
-            const pricing_cartElement = document.createElement('div');
-            pricing_cartElement.classList.add('pricing_cart');
-    
-            const pricingElement = document.createElement('div');
-            pricingElement.classList.add('pricing');
-    
-            const mrpElement = document.createElement('h5');
-            mrpElement.textContent = R_sign + mrp;
-            pricingElement.appendChild(mrpElement);
-      
-            const priceElement = document.createElement('h1');
-            priceElement.textContent = R_sign + price;
-            pricingElement.appendChild(priceElement);
-    
-            pricing_cartElement.appendChild(pricingElement);
-    
-            const pricing2Element = document.createElement('div');
-            pricing2Element.classList.add('pricing2');
-    
-            const cart2_image = document.createElement('div');
-            cart2_image.classList.add('cart2-image');
-            if (rating == 1){
-              cart2_image.innerHTML = `
-              <div id="star">
-              <i class="fa-solid fa-star fa-1x checked star-1"></i>
-              <i class="fa-solid fa-star fa-1x star-2"></i>
-              <i class="fa-solid fa-star fa-1x star-3"></i>
-              <i class="fa-solid fa-star fa-1x star-4"></i>
-              <i class="fa-solid fa-star fa-1x star-5"></i>
-              </div>`
-              } else if (rating == 2) {
-                cart2_image.innerHTML = `
-                <div id="star">
-                <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                <i class="fa-solid fa-star fa-1x star-3"></i>
-                <i class="fa-solid fa-star fa-1x star-4"></i>
-                <i class="fa-solid fa-star fa-1x star-5"></i>
-                </div>`
-                } else if (rating == 3) {
-                  cart2_image.innerHTML = `
-                  <div id="star">
-                  <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                  <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                  <i class="fa-solid fa-star fa-1x checked star-3"></i>
-                  <i class="fa-solid fa-star fa-1x star-4"></i>
-                  <i class="fa-solid fa-star fa-1x star-5"></i>
-                  </div>`
-                  } else if (rating == 4) {
-                    cart2_image.innerHTML = `
-                    <div id="star">
-                    <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-3"></i>
-                    <i class="fa-solid fa-star fa-1x checked star-4"></i>
-                    <i class="fa-solid fa-star fa-1x star-5"></i>
-                    </div>`
-                    } else if (rating == 5) {
-                      cart2_image.innerHTML = `
-                      <div id="star">
-                      <i class="fa-solid fa-star fa-1x checked star-1"></i>
-                      <i class="fa-solid fa-star fa-1x checked star-2"></i>
-                      <i class="fa-solid fa-star fa-1x checked star-3"></i>
-                      <i class="fa-solid fa-star fa-1x checked star-4"></i>
-                      <i class="fa-solid fa-star fa-1x checked star-5"></i>
-                      </div>`
-                      }
-            
-            const disElement = document.createElement('h2');
-            disElement.textContent = rating;
-            cart2_image.appendChild(disElement);
-            pricing2Element.appendChild(cart2_image);
-    
-            pricing_cartElement.appendChild(pricing2Element);
-    
-            productElement.appendChild(pricing_cartElement);
-            productList.appendChild(productElement);
-        
-            productElement.addEventListener('click', () => {
-              window.location.href = `product.html?SKU=${SKU}`;
-            });
-          });
-        });
-    }
+
+      const productElement = document.createElement('div');
+      productElement.classList.add('product');
+
+      const product_image_con = document.createElement('div');
+      product_image_con.classList.add('product_image_con');
+
+      const discardElement = document.createElement('div');
+      discardElement.classList.add('dis_text');
+      const discardtElement = document.createElement('h3');
+      discardtElement.textContent = dis + '%';
+      const discardpElement = document.createElement('p');
+      discardpElement.textContent = 'OFF';
+      discardElement.appendChild(discardpElement);
+      discardElement.appendChild(discardtElement);
+      product_image_con.appendChild(discardElement);
+
+      const  product_wish = document.createElement('div');
+      product_wish.classList.add('product_wish');
+      product_wish.innerHTML = `<i class="fa-solid fa-heart fa-xl"></i>`;
+      product_image_con.appendChild(product_wish);
+
+      const imageElement = document.createElement('img');
+      imageElement.src = imageUrl;
+      product_image_con.appendChild(imageElement);
+
+      productElement.appendChild(product_image_con);
+
+      const product_data = document.createElement('div');
+      product_data.classList.add('product_data');
+
+      const product_title = document.createElement('div');
+      product_title.classList.add('product_title');
+      const Brand_c = document.createElement('h3');
+      Brand_c.classList.add('Brand_c');
+      Brand_c.textContent = Brand;
+      product_title.appendChild(Brand_c);
+      const pr_title = document.createElement('h1');
+      pr_title.textContent = title.slice(0, 50)+'...';
+      product_title.appendChild(pr_title);
+      product_data.appendChild(product_title);
+
+      const price_rating = document.createElement('div');
+      price_rating.classList.add('price_rating');
+
+      const pricing = document.createElement('div');
+      pricing.classList.add('pricing');
+
+      const mrp_C = document.createElement('p');
+      mrp_C.classList.add('mrp');
+      mrp_C.textContent = 'Rs. ' + mrp + '/-';
+      pricing.appendChild(mrp_C);
+
+      const selling_p = document.createElement('h3');
+      selling_p.classList.add('selling_p');
+      selling_p.textContent = 'Rs. ' + price + '/-';
+      pricing.appendChild(selling_p);
+
+      price_rating.appendChild(pricing);
+
+      const rating_stars = document.createElement('div');
+      rating_stars.classList.add('rating_stars');
+      for (var i = 0; i < 5; i++){
+        const stars = document.createElement('div');
+        stars.classList.add('stars');
+        if (i < rating){
+          stars.classList.add('golden');
+        }
+        rating_stars.appendChild(stars);
+      }
+      price_rating.appendChild(rating_stars);
+
+      product_data.appendChild(price_rating);
+      productElement.appendChild(product_data);
+      productList.appendChild(productElement);
+
+      productElement.addEventListener('click', () => {
+        window.location.href = `product.html?SKU=${SKU}`;
+      });
+    });
+  });
+  }
 
   {const range = 'B34:D41';
 

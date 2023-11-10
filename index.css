@@ -19,6 +19,12 @@ html {
   background-color: rgb(231, 231, 231);
 }
 
+#all-content {
+  max-width: 95vw;
+  overflow: hidden;
+  margin: auto;
+}
+
 /*scroll bar start*/
 
 ::-webkit-scrollbar {
@@ -301,7 +307,7 @@ html {
 
 #top-selling-con {
   width: 100%;
-  padding: 0 2.5vw;
+  overflow: hidden;
 }
 
 #top-selling-title {
@@ -420,6 +426,11 @@ html {
 
 .product_data {
   width: 100%;
+}
+
+.Brand_c {
+  font-size: 0.8rem;
+  color: var(--gold);
 }
 
 .product_title {
