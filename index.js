@@ -27,9 +27,6 @@
   })
 }
 
-
-
-
 {//Functions
   const SHEET_ID = '1oKZkAlaECmEaYfXpqZ7Vo0EpxqQ-hfJ2GdqNLHE5vVI';
   const API_KEY = 'AIzaSyCa_LiyI9rO2fdH93USdYjmIMk9k8vqQJs';
@@ -197,7 +194,7 @@
         
     
       data.values.forEach(product => {
-        const [SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
+        const [VSKU,SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
         
         const productElement = document.createElement('div');
         productElement.classList.add('product');
@@ -248,12 +245,12 @@
 
         const mrp_C = document.createElement('p');
         mrp_C.classList.add('mrp');
-        mrp_C.textContent = 'Rs. ' + mrp + '/-';
+        mrp_C.textContent = '₹ ' + mrp + '/-';
         pricing.appendChild(mrp_C);
 
         const selling_p = document.createElement('h3');
         selling_p.classList.add('selling_p');
-        selling_p.textContent = 'Rs. ' + price + '/-';
+        selling_p.textContent = '₹ ' + price + '/-';
         pricing.appendChild(selling_p);
 
         price_rating.appendChild(pricing);
@@ -275,7 +272,7 @@
         productList.appendChild(productElement);
     
         productElement.addEventListener('click', () => {
-          window.location.href = `product.html?SKU=${SKU}`;
+          window.location.href = `product.html?SKU=${SKU}&VSKU=${VSKU}`;
         });
       });
     });
@@ -290,7 +287,7 @@
     
 
     data.values.forEach(product => {
-      const [SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
+      const [VSKU,SKU,Brand, title, mrp, imageUrl, price, dis, rating, ] = product;
       
 
       const productElement = document.createElement('div');
@@ -342,12 +339,12 @@
 
       const mrp_C = document.createElement('p');
       mrp_C.classList.add('mrp');
-      mrp_C.textContent = 'Rs. ' + mrp + '/-';
+      mrp_C.textContent = '₹ ' + mrp + '/-';
       pricing.appendChild(mrp_C);
 
       const selling_p = document.createElement('h3');
       selling_p.classList.add('selling_p');
-      selling_p.textContent = 'Rs. ' + price + '/-';
+      selling_p.textContent = '₹ ' + price + '/-';
       pricing.appendChild(selling_p);
 
       price_rating.appendChild(pricing);
@@ -369,51 +366,54 @@
       productList.appendChild(productElement);
 
       productElement.addEventListener('click', () => {
-        window.location.href = `product.html?SKU=${SKU}`;
+        window.location.href = `product.html?SKU=${SKU}&VSKU=${VSKU}`;
       });
     });
   });
   }
 
-  {const range = 'B34:D41';
-
+  {//community
+    const range = 'B34:D41';
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
-        .then(response => response.json())
-        .then(data => {
-          
-          document.getElementById('card-1-name').textContent = data.values[0][0];
-          document.getElementById('card-1-details').textContent = data.values[0][1].slice(0, 250)+'...';
-          document.getElementById('card-1').style.backgroundImage="url("+data.values[0][2]+")";
+    .then(response => response.json())
+    .then(data => {
+      const communitycontainer = document.getElementById('community-row-con');
+      data.values.forEach(communitymem => {
+        const [Name, Bio, Image, ] = communitymem;
 
-          document.getElementById('card-2-name').textContent = data.values[1][0];
-          document.getElementById('card-2-details').textContent = data.values[1][1].slice(0, 250)+'...';
-          document.getElementById('card-2').style.backgroundImage="url("+data.values[1][2]+")";
+        const comcard = document.createElement('div');
+        comcard.classList.add('com-card');
 
-          document.getElementById('card-3-name').textContent = data.values[2][0];
-          document.getElementById('card-3-details').textContent = data.values[2][1].slice(0, 250)+'...';
-          document.getElementById('card-3').style.backgroundImage="url("+data.values[2][2]+")";
+        const com_card_inner = document.createElement('div');
+        com_card_inner.classList.add('com-card-inner');
 
-          document.getElementById('card-4-name').textContent = data.values[3][0];
-          document.getElementById('card-4-details').textContent = data.values[3][1].slice(0, 250)+'...';
-          document.getElementById('card-4').style.backgroundImage="url("+data.values[3][2]+")";
+        const com_card_front = document.createElement('div');
+        com_card_front.classList.add('com-card-front');
+        com_card_front.style.backgroundImage = `url(${Image})`;
 
-          document.getElementById('card-5-name').textContent = data.values[4][0];
-          document.getElementById('card-5-details').textContent = data.values[4][1].slice(0, 250)+'...';
-          document.getElementById('card-5').style.backgroundImage="url("+data.values[4][2]+")";
+        const com_title = document.createElement('h1');
+        com_title.textContent = Name;
+        com_card_front.appendChild(com_title);
 
-          document.getElementById('card-6-name').textContent = data.values[5][0];
-          document.getElementById('card-6-details').textContent = data.values[5][1].slice(0, 250)+'...';
-          document.getElementById('card-6').style.backgroundImage="url("+data.values[5][2]+")";
+        com_card_inner.appendChild(com_card_front);
 
-          document.getElementById('card-7-name').textContent = data.values[6][0];
-          document.getElementById('card-7-details').textContent = data.values[6][1].slice(0, 250)+'...';
-          document.getElementById('card-7').style.backgroundImage="url("+data.values[6][2]+")";
+        const com_card_back = document.createElement('div');
+        com_card_back.classList.add('com-card-back');
 
-          document.getElementById('card-8-name').textContent = data.values[7][0];
-          document.getElementById('card-8-details').textContent = data.values[7][1].slice(0, 250)+'...';
-          document.getElementById('card-8').style.backgroundImage="url("+data.values[7][2]+")";
+        const com_card_back_h3 = document.createElement('h3');
+        com_card_back_h3.textContent = 'About:';
+        com_card_back.appendChild(com_card_back_h3);
 
-    })};
+        const com_card_back_p = document.createElement('p');
+        com_card_back_p.textContent = Bio;
+        com_card_back.appendChild(com_card_back_p);
+
+        com_card_inner.appendChild(com_card_back);
+        comcard.appendChild(com_card_inner);
+        communitycontainer.appendChild(comcard);
+      })
+    })
+  };
 
   { //Product heading button for top selling
     const buttonRight = document.getElementById('button-right-top');
@@ -440,18 +440,18 @@
   }
 
 
-    const footer_form = document.getElementById('Footer-form');
+  const footer_form = document.getElementById('Footer-form');
 
-    function handleSubmit(event) {
-      event.preventDefault(); // Prevent the default form submission behavior
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-      // Get form data
-      const formData = new FormData(footer_form);
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const contact = formData.get('contact');
+    // Get form data
+    const formData = new FormData(footer_form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const contact = formData.get('contact');
 
-      var myHeaders = new Headers();
+    var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
       method: "post",
@@ -461,19 +461,19 @@
     };
 
     fetch("https://v1.nocodeapi.com/kumarpintu9555/google_sheets/OAJVjKyAUvWCdxrY?tabId=News Later", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
-      // Display a confirmation message
-      alert(`Thank you for submitting the form, ${name}!`);
-      
-      // You can perform additional client-side actions here before or instead of the alert.
+    // Display a confirmation message
+    alert(`Thank you for submitting the form, ${name}!`);
+    
+    // You can perform additional client-side actions here before or instead of the alert.
 
-      // Reset the form (optional)
-      footer_form.reset();
-    }
+    // Reset the form (optional)
+    footer_form.reset();
+  }
 
-    // Attach the event listener to the form's submit event
-    document.getElementById('footer_form_button').addEventListener('click', handleSubmit);
+  // Attach the event listener to the form's submit event
+  document.getElementById('footer_form_button').addEventListener('click', handleSubmit);
 }
