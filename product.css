@@ -98,7 +98,7 @@ html {
 }
 
 #ic_options {
-  width: 20%;
+  width: 25%;
   display: flex;
   justify-content: right;
 }
@@ -175,13 +175,15 @@ html {
 .section_1_div {
   width: 47%;
   padding: 1%;
+  position: relative;
 }
 
 .Right_Half {
-  position: relative;
+  position: sticky;
   display: flex;
   align-items: top;
   justify-content: space-between;
+  top: 80px;
   height: 100%;
   gap: 2%;
 }
@@ -222,19 +224,11 @@ html {
 /*Product Text Data*/
 
 #pr_name_rate_brand {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: max-content;
-  background-color: white;
-  width: 100%;
-  border-radius: 10px;
+  margin-top: 0;
 }
 
 #pr_brand_name {
-  width: 94%;
   margin: 0 auto;
-  margin-top: 2%;
   border-radius: 10px;
   padding: 1%;
   background-color: var(--p1);
@@ -247,10 +241,8 @@ html {
 
 .rating {
   display: flex;
-  width: max-content;
-  position: absolute;
-  right: 40px;
-  bottom: 15px;
+  width: 100%;
+  justify-content: end;
 }
 
 .rating p {
@@ -323,13 +315,18 @@ html {
 }
 
 .pr_dish {
-  height: 100px;
   width: 100px;
+  aspect-ratio: 1;
   display: flex;
   border-radius: 50%;
   flex-direction: column;
   justify-content: center;
-  background-image: radial-gradient(circle, rgb(241, 227, 164), rgb(248, 241, 209), white);
+  background-image: radial-gradient(
+    circle,
+    rgb(241, 227, 164),
+    rgb(248, 241, 209),
+    white
+  );
   transition: 0.3s ease;
   align-items: center;
 }
@@ -492,11 +489,11 @@ html {
   flex-wrap: wrap;
 }
 
-.flavorone input {  
+.Vari_T_one input {
   display: none;
 }
 
-.flavorone label {
+.Vari_T_one label {
   width: max-content;
   padding: 8px;
   display: block;
@@ -509,14 +506,22 @@ html {
   transition: color 0.3s ease;
 }
 
-.flavorone input:checked ~ label {
+.Vari_T_one input:checked ~ label {
   background-color: var(--p1);
   border: var(--gold) 1px solid;
 }
 
+.crossed label {
+  color: grey;
+  border: grey 1px solid;
+}
 
+/*Bullet Points container*/
 
-
+#Bullet_Point_H {
+  width: 95%;
+  margin: auto;
+}
 
 /*Footer*/
 

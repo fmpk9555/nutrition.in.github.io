@@ -82,7 +82,7 @@
         .then(data => {
             console.log(data.values);
             data.values.forEach(product => {
-                const [Product_Type,SKU,Variation,Variation_No,Variation_SKU,Variation_Type,Variation_Value,HSN,FSSAI,Brand_Name,Product_Title,Flavor,Size,Diet_Type,Number_of_Items,MRP,Discount_Type,Discount,Offer_Price,Settlement_Value,Bullet_Point_1,Bullet_Point_2,Bullet_Point_3,Bullet_Point_4,Bullet_Point_5,Usage_Direction,Image_1,Image_2,Image_3,Image_4,Image_5,Image_6,Image_7,Image_8,Description,Length,Width,Height,Weight,Manufacturer,Manufacturer_Address,MFG_Date,Self_Life_Months,Form,Storage_Type,Color,Heat_Sesitive,Total_Rating,Total_Reviews,User_Pic_1,User_Name_1,User_Note_1,Review_1,Comment_1,User_Pic_2,User_Name_2,User_Note_2,Review_2,Comment_2,User_Pic_3,User_Name_3,User_Note_3,Review_3,Comment_3,User_Pic_4,User_Name_4,User_Note_4,Review_4,Comment_4,User_Pic_5,User_Name_5,User_Note_5,Review_5,Comment_5
+                const [Product_Type,SKU,Variation,Variation_No,Variation_SKU,Variation_Type,Variation_Value,HSN,FSSAI,Brand_Name,Product_Title,Flavor,Size,Diet_Type,Stock,MRP,Discount_Type,Discount,Offer_Price,Settlement_Value,Bullet_Point_1,Bullet_Point_2,Bullet_Point_3,Bullet_Point_4,Bullet_Point_5,Usage_Direction,Image_1,Image_2,Image_3,Image_4,Image_5,Image_6,Image_7,Image_8,Description,Length,Width,Height,Weight,Manufacturer,Manufacturer_Address,MFG_Date,Self_Life_Months,Form,Storage_Type,Color,Heat_Sesitive,Total_Rating,Total_Reviews,User_Pic_1,User_Name_1,User_Note_1,Review_1,Comment_1,User_Pic_2,User_Name_2,User_Note_2,Review_2,Comment_2,User_Pic_3,User_Name_3,User_Note_3,Review_3,Comment_3,User_Pic_4,User_Name_4,User_Note_4,Review_4,Comment_4,User_Pic_5,User_Name_5,User_Note_5,Review_5,Comment_5
                 ] = product;
 
                 if (Variation_SKU === sSKU) {
@@ -148,6 +148,17 @@
                     }
                     variationcreator();
 
+                    {
+                        const Bullet_Point_H = document.getElementById('Bullet_Point_H');
+                        Bullet_Point_H.innerHTML = `
+                        <li>${Bullet_Point_1}</li>
+                        <li>${Bullet_Point_2}</li>
+                        <li>${Bullet_Point_3}</li>
+                        <li>${Bullet_Point_4}</li>
+                        <li>${Bullet_Point_5}</li>
+                        `
+                    }
+
                 }
             })
         })
@@ -181,7 +192,7 @@
             .then(response => response.json())
             .then(data => {
                 data.values.forEach(product => {
-                    const [Product_Type, SKU, Variation, Variation_No, Variation_SKU, Variation_Type, Variation_Value, HSN, FSSAI, Brand_Name, Product_Title, Flavor, Size, Diet_Type, Number_of_Items, MRP, Discount_Type, Discount, Offer_Price, Settlement_Value, Bullet_Point_1, Bullet_Point_2, Bullet_Point_3, Bullet_Point_4, Bullet_Point_5, Usage_Direction, Image_1, Image_2, Image_3, Image_4, Image_5, Image_6, Image_7, Image_8, Description, Length, Width, Height, Weight, Manufacturer, Manufacturer_Address, MFG_Date, Self_Life_Months, Form, Storage_Type, Color, Heat_Sesitive, Total_Rating, Total_Reviews, User_Pic_1, User_Name_1, User_Note_1, Review_1, Comment_1, User_Pic_2, User_Name_2, User_Note_2, Review_2, Comment_2, User_Pic_3, User_Name_3, User_Note_3, Review_3, Comment_3, User_Pic_4, User_Name_4, User_Note_4, Review_4, Comment_4, User_Pic_5, User_Name_5, User_Note_5, Review_5, Comment_5
+                    const [Product_Type, SKU, Variation, Variation_No, Variation_SKU, Variation_Type, Variation_Value, HSN, FSSAI, Brand_Name, Product_Title, Flavor, Size, Diet_Type, Stock, MRP, Discount_Type, Discount, Offer_Price, Settlement_Value, Bullet_Point_1, Bullet_Point_2, Bullet_Point_3, Bullet_Point_4, Bullet_Point_5, Usage_Direction, Image_1, Image_2, Image_3, Image_4, Image_5, Image_6, Image_7, Image_8, Description, Length, Width, Height, Weight, Manufacturer, Manufacturer_Address, MFG_Date, Self_Life_Months, Form, Storage_Type, Color, Heat_Sesitive, Total_Rating, Total_Reviews, User_Pic_1, User_Name_1, User_Note_1, Review_1, Comment_1, User_Pic_2, User_Name_2, User_Note_2, Review_2, Comment_2, User_Pic_3, User_Name_3, User_Note_3, Review_3, Comment_3, User_Pic_4, User_Name_4, User_Note_4, Review_4, Comment_4, User_Pic_5, User_Name_5, User_Note_5, Review_5, Comment_5
                     ] = product;
     
                     if (sentSKU === SKU) {
@@ -193,7 +204,7 @@
                                 values: [{ sku: Variation_SKU, value: Variation_Value }],
                             });
                         } else {
-                            AvlvariationType[typeIndex].values.push({ sku: Variation_SKU, value: Variation_Value });
+                            AvlvariationType[typeIndex].values.push({ sku: Variation_SKU, value: Variation_Value, Stock: Stock });
                         }
                     }
                 });
@@ -205,23 +216,47 @@
                     vtypeHeading.classList.add('vtypeHeading');
                     vtypeHeading.innerText = `${typeObject.type}:`;
                     vtypeH.appendChild(vtypeHeading);
+
+                    const avlVariations = document.createElement('div');
+                    avlVariations.classList.add('avlVariations');
+
+                    const Vari_form = document.createElement('form');
+                    Vari_form.classList.add('form');
+
+                    var i = 0;
                 
                     typeObject.values.forEach(valueObject => {
-                        const avlVariations = document.createElement('div');
-                        avlVariations.classList.add('avlVariations'); // Add any additional classes as needed
+
+                        const Vari_T_one = document.createElement('div');
+                        Vari_T_one.classList.add('Vari_T_one');
+                        if (valueObject.Stock < 1){
+                            Vari_T_one.classList.add('crossed')
+                        }
+
+                        i++;
+
+                        const Vari_One_in = document.createElement('input');
+                        Vari_One_in.id = `radio_${typeObject.type}_${i}`;
+                        Vari_One_in.name = `radio`;
+                        Vari_One_in.type = 'radio';
+                        Vari_One_in.checked = valueObject.sku === sSKU;
+                        Vari_T_one.appendChild(Vari_One_in);
+
+                        const Vari_One_L = document.createElement('label');
+                        Vari_One_L.htmlFor = `radio_${typeObject.type}_${i}`;
+                        Vari_One_L.innerText = valueObject.value;
+                        Vari_T_one.appendChild(Vari_One_L);
+                        
+                        console.log(valueObject.sku);
+                        Vari_T_one.addEventListener('click', () => {
+                            window.location.href = `product.html?SKU=${sentSKU}&VSKU=${valueObject.sku}`;
+                        });
+
+                        Vari_form.appendChild(Vari_T_one);
+                        avlVariations.appendChild(Vari_form);
                 
-                        const skuLabel = document.createElement('span');
-                        skuLabel.innerText = `SKU: ${valueObject.sku}, `;
-                
-                        const valueLabel = document.createElement('span');
-                        valueLabel.innerText = `Value: ${valueObject.value}`;
-                
-                        avlVariations.appendChild(skuLabel);
-                        avlVariations.appendChild(valueLabel);
-                
-                        vtypeH.appendChild(avlVariations);
                     });
-                
+                    vtypeH.appendChild(avlVariations);
                     AAVholder.appendChild(vtypeH);
                 });
                 console.log(AvlvariationType);
