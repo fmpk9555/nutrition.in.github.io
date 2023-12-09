@@ -13,6 +13,15 @@
         <script src="https://kit.fontawesome.com/1544791081.js" crossorigin="anonymous"></script>
     </head>
     <body>
+
+        <div id="Notification" class="not-hide">
+            <div class="not-body">
+                <button id="not_close_btn"><i class="fa-solid fa-xmark"></i></button>
+                <div id="not_content">
+                </div>
+            </div>
+        </div>
+
         <!--Navigation bar-->
             <section id="nav-bar">
                 <a href="index.html" class="logo"><div id="logo">
@@ -43,162 +52,114 @@
 
         <!--Spacer-->
         <div id="spacer">
-            <h2>  </h2>
         </div>
         <!--Spacer-->
-
-    <section id="all-content">
-
-    <!--Spacer-->
-    <div id="spacer">
-    </div>
-    <!--Spacer end-->
-
-    <div class="page">
-
-    <section id="cart-product-list">
-
-        <div class="heading">
-            <h1 class="cart-product-m font-size">Product Details</h1>
-            <div class="qty_price_con">
-                <div class="price-t"></div>
-                <h1 class="price-h price-k font-size">Price</h1>
-                <h1 class="Quantity-h font-size">QTY</h1>
-                <h1 class="price-h font-size">Total Price</h1>
-            </div>
-        </div>
-        <div id="cart-list">
-            
-        </div>
-    </section>
-
-        <div class="final-calculation-c">
-        <div class="final-calculation">
-            Final Price:
-            <div class="content">
-                <h2>Cart Value:</h2>
-                <h2 id="sum-of">0/-</h2> 
-            </div>
-
-            <div class="content">
-                <h2>Discount<span id="show-dis"></span>:</h2>
-                <h2 id="discount-D">0/-</h2> 
-            </div>
-
-            <div class="content">
-                <h2>Coupon Discount<span id="show-dis2"></span>:</h2>
-                <h2 id="C_disc">0/-</h2> 
-            </div>
-
-            <div class="content">
-                <h2>Delivery Charges:</h2>
-                <h2 id="D-charge">0/-</h2>
-            </div>
-
-            <div class="separator"></div>
-
-            <div class="content total">
-                <h2>Total:</h2>
-                <h2 id="total">0/-</h2> 
-            </div>
-
-            <button id="check-out">
-                    Place Order
-            </button>
-
-            <div class="coupon-c">
-                <input id="coupon-input" for="coupon" type="Number" max = "99" placeholder="Enter Coupon Code" />
-                <button class="check-out coupon" id="coupon_apply">Apply</button>
-            </div>
-
-        </div>
-    </div>
-    </div>
- <h1 id="testh1"></h1>
-    <script src="cart.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-    </section>
-</body>
-
-<!--Footer start-->
-<footer class="section-1">
-    <section id="newslater">
-        <div id="heading-news">
-            <img src="images/MAIL.png" alt="Mail Icon">
-            <h1>Subscribe for Our Offers, Deals and Newslater</h1>
-        </div>
-        <div class="form_con">
-            <form id="Footer-form">
-                <label for="name">Full Name:</label><input type="text" autocomplete="name" required placeholder="Full Name" name="name" id="name">
-                <label for="email">Eamil ID:</label><input type="email" autocomplete="email" required placeholder="Email ID" id="email" name="email">
-                <label for="contact">Mobile Number:</label><input type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Mobile Number" id="contact" name="contact">
-                <input type="submit" value="submit" id="footer_form_button">
-            </form>
-        </div>
-    </section>
-
-    <section id="footer">
-        <div class="col">
-            <a href="index.html" class="footer-logo"><div id="footer-logo-div">
-                <i class="fa-solid fa-snowflake fa-6x"></i>
-                <h1>Nutrition</h1>
-            </div></a>
-            <h4>Contact Us:</h4>
-            <p><strong>Address: </strong>Brand, 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</p>
-            <p><strong>Phone: </strong>+91 9877777777</p>
-            <p><strong>Hours: </strong>Mon - Sat, 10:00 AM to 06:00 PM</p>
-
-        </div>
-
-        <div class="col">
-            <h4>About</h4>
-            <a href="#">About us</a>
-            <a href="#">Delivery Information</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
-        </div>
-
-        <div class="col">
-            <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">My Orders</a>
-            <a href="#">Helps</a>
-        </div>
-
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From App store or Google Play</p>
-            <div class="row">
-                <a href="https://www.apple.com/in/app-store/"><i id="apps" class="fa-brands fa-app-store-ios fa-3x"></i></a>
-                <a href="https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700065205026415_creativeid_535350509927_device_c&gclid=CjwKCAiAmJGgBhAZEiwA1JZolgdrHOyTts-avoe3MnlIru_Ikrzg3JsOjMldvmVRxk5ZV6SoB8XPNhoCkLkQAvD_BwE&gclsrc=aw.ds"><i id="apps" class="fa-brands fa-google-play fa-3x"></i></a>
-            </div>
-            <p>Secured Payment Gateways</p>
-            <div class="row">
-                <i class="fa-brands fa-cc-visa fa-2x"></i>
-                <i class="fa-brands fa-cc-mastercard fa-2x"></i>
-                <i class="fa-brands fa-google-pay fa-2x"></i>
-                <i class="fa-brands fa-paypal fa-2x"></i>
-                <i class="fa-brands fa-amazon-pay fa-2x"></i>
-                <i class="fa-brands fa-apple-pay fa-2x"></i>
-            </div>
-            <div class="follow">
-                <h4>Follow us:</h4>
-                <div class="icon">
-                    <i class="fa-brands fa-facebook fa-2x"></i>
-                    <i class="fa-brands fa-instagram fa-2x"></i>
-                    <i class="fa-brands fa-twitter fa-2x"></i>
-                    <i class="fa-brands fa-pinterest fa-2x"></i>
-                    <i class="fa-brands fa-youtube fa-2x"></i>
+        <section id="all-content">
+            <div id="cart_pr_H">
+                <div id="cart_pr_Heading" class="cart_div">
+                    <div class="pr_Heading cart_product"><h4>Product</h4></div>
+                    <div class="pr_Heading pr_pricing_con"><h4>Pricing</h4></div>
+                    <div class="pr_Heading pr_pricing_con"><h4>Quantity</h4></div>
+                    <div class="pr_Heading pr_pricing_con"><h4>Total</h4></div>
+                </div>
+                <div id="cart_all_pr_H">
                 </div>
             </div>
+            <div id="cart_value_H">
+                <h1>Cart Value:</h1>
+                <div class="ind_vlaue_ct" id="ct_subtotal"><h4>Subtotal:</h4><h4 class="value">₹ 0/-</h4></div>
+                <div class="ind_vlaue_ct" id="ct_coupon_dis"><p>Coupon Discount:</p><p class="value">₹ 0/-</p></div>
+                <div class="ind_vlaue_ct" id="ct_delivery_ch"><p>Delivery Charges:</p><p class="value">₹ 0/-</p></div>
+                <div class="divider"></div>
+                <div class="ind_vlaue_ct" id="ct_payable"><h1>Payable:</h1><h1 class="value">₹ 0/-</h1></div>
+                <div id="btn_cpn_con">
+                    <button id="place_order">Place Order</button>
+                    <div class="ind_vlaue_ct" id="cp_con"><input type="text" required placeholder="Coupon Code" id="ct_cp_in"><button id="CP_APP_BTN">Apply</button></div>
+                </div>
+            </div>
+        </section>
+        <script src="cart.js"></script>
+    </body>
+
+    <!--Footer start-->
+    <footer class="section-1">
+        <section id="newslater">
+            <div id="heading-news">
+                <img src="images/MAIL.png" alt="Mail Icon">
+                <h1>Subscribe for Our Offers, Deals and Newslater</h1>
+            </div>
+            <div class="form_con">
+                <form id="Footer-form">
+                    <label for="name">Full Name:</label><input type="text" autocomplete="name" required placeholder="Full Name" name="name" id="name">
+                    <label for="email">Eamil ID:</label><input type="email" autocomplete="email" required placeholder="Email ID" id="email" name="email">
+                    <label for="contact">Mobile Number:</label><input type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Mobile Number" id="contact" name="contact">
+                    <input type="submit" value="submit" id="footer_form_button">
+                </form>
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="col">
+                <a href="index.html" class="footer-logo"><div id="footer-logo-div">
+                    <i class="fa-solid fa-snowflake fa-6x"></i>
+                    <h1>Nutrition</h1>
+                </div></a>
+                <h4>Contact Us:</h4>
+                <p><strong>Address: </strong>Brand, 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</p>
+                <p><strong>Phone: </strong>+91 9877777777</p>
+                <p><strong>Hours: </strong>Mon - Sat, 10:00 AM to 06:00 PM</p>
+
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">My Orders</a>
+                <a href="#">Helps</a>
+            </div>
+
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App store or Google Play</p>
+                <div class="row">
+                    <a href="https://www.apple.com/in/app-store/"><i id="apps" class="fa-brands fa-app-store-ios fa-3x"></i></a>
+                    <a href="https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700065205026415_creativeid_535350509927_device_c&gclid=CjwKCAiAmJGgBhAZEiwA1JZolgdrHOyTts-avoe3MnlIru_Ikrzg3JsOjMldvmVRxk5ZV6SoB8XPNhoCkLkQAvD_BwE&gclsrc=aw.ds"><i id="apps" class="fa-brands fa-google-play fa-3x"></i></a>
+                </div>
+                <p>Secured Payment Gateways</p>
+                <div class="row">
+                    <i class="fa-brands fa-cc-visa fa-2x"></i>
+                    <i class="fa-brands fa-cc-mastercard fa-2x"></i>
+                    <i class="fa-brands fa-google-pay fa-2x"></i>
+                    <i class="fa-brands fa-paypal fa-2x"></i>
+                    <i class="fa-brands fa-amazon-pay fa-2x"></i>
+                    <i class="fa-brands fa-apple-pay fa-2x"></i>
+                </div>
+                <div class="follow">
+                    <h4>Follow us:</h4>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook fa-2x"></i>
+                        <i class="fa-brands fa-instagram fa-2x"></i>
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                        <i class="fa-brands fa-pinterest fa-2x"></i>
+                        <i class="fa-brands fa-youtube fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="copy">
+            </i><p>© 2023, Tech2 etc - HTML CSS Ecommerce Template</p>
         </div>
-    </section>
-    <div class="copy">
-        </i><p>© 2023, Tech2 etc - HTML CSS Ecommerce Template</p>
-    </div>
-</footer>
-<!--Footer end-->
+    </footer>
+    <!--Footer end-->
 </html>

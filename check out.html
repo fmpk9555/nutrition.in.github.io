@@ -1,409 +1,404 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Nutrition</title>
+        <link rel="shortcut icon" href="images/Logo/white.png" type="image/x-icon">
         <link href="check out.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/1544791081.js" crossorigin="anonymous"></script>
     </head>
-<body>
-    <!--Navigation bar-->
-    <section id="nav-bar">
-        <div id="logo">
-            <!--<div class="nav-button">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>-->
-            <a href="index.html"><i class="fa-solid fa-snowflake fa-3x logo"></i></a>
-            <h2 class="logo">Nutrition</h2>
-        </div>
-        <div id="options">
-            <h1><a href="index.html">Home</a></h1>
-            <h1><a href="index.html">Products</a></h1>
-            <h1><a href="index.html">About Us</a></h1>
-            <h1><a href="index.html">Contact</a></h1>
-            <h1><a href="index.html">Authenticity</a></h1>
-            <input type="text" placeholder="Search" class="search">
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping logo fa-2x cart"></i></a>
-            </div>
-    </section>
-    <!--Navigation bar-->
+    <body>
 
-    <section id="all-content">
-
-    <!--Spacer-->
-    <div id="spacer">
-        <h2>  </h2>
-    </div>
-    <!--Spacer-->
-
-<div id="Form_Value_Con">
-    <div id="form_value">
-        <div id="form_con">
-            <form action="get_address" id="addressForm">
-                <label for="heading" id="form-billing-heading">Billing Address:</label>
-                <div class="Address-con"><label for="name">Name:</label><input type="text" name="bil_Customer Name" required autocomplete="name" placeholder="Please Enter Your Name"></div>
-                <div class="Address-con"><label for="contact-no.">Mobile no.:</label><input name="bil_Mobile no." type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Please Enter Your Mobile Number"></div>
-                <div class="Address-con"><label for="Email-id">Email ID:</label><input name="bil_Email ID" type="text" autocomplete="email" placeholder="Please Enter Your Email ID"></div>
-                <div class="Address-con"><label for="Address">Address:</label><input type="text" required name="bil_Address" autocomplete="street-address" placeholder="Please Enter Your Address"></div>
-                <div class="Address-con-sep">
-                    <label for="city-name">City:</label><input id="city-name" name="bil_City" type="text" required autocomplete="home city" placeholder="Please Enter the Name of your City">
-                    <label for="postal-code">Pin code:</label><input name="bil_Pincode" id="city-name" type="text" required autocomplete="postal-code" placeholder="Please Enter the Name of your City">
+        <div id="Notification" class="not-hide">
+            <div class="not-body">
+                <button id="not_close_btn"><i class="fa-solid fa-xmark"></i></button>
+                <div id="not_content">
                 </div>
-                <div class="Address-con-sep">
-                    <label for="country-name">Country:</label><input id="city-name" name="bil_Country" type="text" required value="India" autocomplete="country-name" placeholder="Please Enter the Name of your City">
-                    <label for="state-name">State:</label>
-                        <select id="country-state" name="bil_State">
-                        <option value="">Select state</option>
-                        <option value="AN">Andaman and Nicobar Islands</option>
-                        <option value="AP">Andhra Pradesh</option>
-                        <option value="AR">Arunachal Pradesh</option>
-                        <option value="AS">Assam</option>
-                        <option value="BR">Bihar</option>
-                        <option value="CH">Chandigarh</option>
-                        <option value="CT">Chhattisgarh</option>
-                        <option value="DN">Dadra and Nagar Haveli</option>
-                        <option value="DD">Daman and Diu</option>
-                        <option value="DL">Delhi</option>
-                        <option value="GA">Goa</option>
-                        <option value="GJ">Gujarat</option>
-                        <option value="HR">Haryana</option>
-                        <option value="HP">Himachal Pradesh</option>
-                        <option value="JK">Jammu and Kashmir</option>
-                        <option value="JH">Jharkhand</option>
-                        <option value="KA">Karnataka</option>
-                        <option value="KL">Kerala</option>
-                        <option value="LA">Ladakh</option>
-                        <option value="LD">Lakshadweep</option>
-                        <option value="MP">Madhya Pradesh</option>
-                        <option value="MH">Maharashtra</option>
-                        <option value="MN">Manipur</option>
-                        <option value="ML">Meghalaya</option>
-                        <option value="MZ">Mizoram</option>
-                        <option value="NL">Nagaland</option>
-                        <option value="OR">Odisha</option>
-                        <option value="PY">Puducherry</option>
-                        <option value="PB">Punjab</option>
-                        <option value="RJ">Rajasthan</option>
-                        <option value="SK">Sikkim</option>
-                        <option value="TN">Tamil Nadu</option>
-                        <option value="TG">Telangana</option>
-                        <option value="TR">Tripura</option>
-                        <option value="UP">Uttar Pradesh</option>
-                        <option value="UT">Uttarakhand</option>
-                        <option value="WB">West Bengal</option>
-                        </select>
-                </div>
-            
-                <div id="checkbox_form"><label class="container">My Shipping address is same as Billing address.<input id="checkbox_form_input" type="checkbox" checked="checked"><span class="checkmark"></span></label></div>
-                <div id="billing_form_con" class="collapse">
-                    <label for="heading" id="form-shipping-heading">Shipping Address:</label>
-                    <div class="Address-con"><label for="name">Name:</label><input type="text" name="ship_Customer Name" autocomplete="name" placeholder="Please Enter Your Name"></div>
-                    <div class="Address-con"><label for="contact-no.">Mobile no.:</label><input type="number" name="ship_Mobile no." autocomplete="tel" max="9999999999" min="1111111111" placeholder="Please Enter Your Mobile Number"></div>
-                    <div class="Address-con"><label for="Email-id">Email ID:</label><input type="text" name="ship_Email ID" autocomplete="email" placeholder="Please Enter Your Email ID"></div>
-                    <div class="Address-con"><label for="Address">Address:</label><input type="text" name="ship_Address" autocomplete="street-address" placeholder="Please Enter Your Address"></div>
-                    <div class="Address-con-sep">
-                        <label for="city-name">City:</label><input id="city-name" type="text" name="ship_City" autocomplete="home city" placeholder="Please Enter the Name of your City">
-                        <label for="postal-code">Pin code:</label><input id="city-name" name="ship_Pincode" type="text" autocomplete="postal-code" placeholder="Please Enter the Name of your City">
-                        </div>
-                    <div class="Address-con-sep">
-                        <label for="country-name">Country:</label><input id="city-name" name="ship_Country" type="text" value="India" autocomplete="country-name" placeholder="Please Enter the Name of your City">
-                        <label for="state-name">State:</label>
-                        <select id="country-state" name="ship_State">
-                        <option value="">Select state</option>
-                        <option value="AN">Andaman and Nicobar Islands</option>
-                        <option value="AP">Andhra Pradesh</option>
-                        <option value="AR">Arunachal Pradesh</option>
-                        <option value="AS">Assam</option>
-                        <option value="BR">Bihar</option>
-                        <option value="CH">Chandigarh</option>
-                        <option value="CT">Chhattisgarh</option>
-                        <option value="DN">Dadra and Nagar Haveli</option>
-                        <option value="DD">Daman and Diu</option>
-                        <option value="DL">Delhi</option>
-                        <option value="GA">Goa</option>
-                        <option value="GJ">Gujarat</option>
-                        <option value="HR">Haryana</option>
-                        <option value="HP">Himachal Pradesh</option>
-                        <option value="JK">Jammu and Kashmir</option>
-                        <option value="JH">Jharkhand</option>
-                        <option value="KA">Karnataka</option>
-                        <option value="KL">Kerala</option>
-                        <option value="LA">Ladakh</option>
-                        <option value="LD">Lakshadweep</option>
-                        <option value="MP">Madhya Pradesh</option>
-                        <option value="MH">Maharashtra</option>
-                        <option value="MN">Manipur</option>
-                        <option value="ML">Meghalaya</option>
-                        <option value="MZ">Mizoram</option>
-                        <option value="NL">Nagaland</option>
-                        <option value="OR">Odisha</option>
-                        <option value="PY">Puducherry</option>
-                        <option value="PB">Punjab</option>
-                        <option value="RJ">Rajasthan</option>
-                        <option value="SK">Sikkim</option>
-                        <option value="TN">Tamil Nadu</option>
-                        <option value="TG">Telangana</option>
-                        <option value="TR">Tripura</option>
-                        <option value="UP">Uttar Pradesh</option>
-                        <option value="UT">Uttarakhand</option>
-                        <option value="WB">West Bengal</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="Address-con-note"><label for="notes">Notes (Optional):</label><textarea type="text" name="del_notes" placeholder="Please enter any note regarding your order..."></textarea></div>
-
-                <div id="btn_con"><button id="Add_com_btn">Proceed to Payment</button></div>
-
-            </form>
-        </div>
-        <div id="value_con">
-            <div id="final_value">
-                <h1 id="value_con_head">Cart Value:</h1>
-                <div class="cont_values_sep"><h3>Total:</h3><h3 id="checkfinal">Rs. 0/-</h3></div>
-                <div class="cont_values_sep"><h3>Discount:</h3><h3 id="checkdis">Rs. 1500/-</h3></div>
-                <div class="cont_values_sep"><h3>Coupon Discount:</h3><h3 id="checkcdis">Rs. 90/-</h3></div>
-                <div class="cont_values_sep"><h3>Delivery Fees:</h3><h3 id="checkafees">Rs. 240/-</h3></div>
-                <div class="divider"></div>
-                <div class="cont_values_sep payable"><h3>Payable:</h3><h3 id="checktpay">Rs. 5890/-</h3></div>
-                <div class="cont_values_sep collapse payable"><input type="text" value="30" id="coupon_inp" placeholder="Coupon Code" required> <button id="coupon_btn">Remove</button></div>
             </div>
         </div>
-    </div>
-    <div id="payment_method">
-        <div id="pay_options">
-            <button class="Option_pay" id="UPI_BTN">UPI<p>(Unified Paym ents Interface)</p></button>
-            <button class="Option_pay" id="Card_BTN">Pay Via Card</button>
-            <button class="Option_pay" id="Wallet_BTN">Pay Via Wallet</button>
-            <button class="Option_pay" id="NetBank_BTN">Netbanking</button>
-            <button class="Option_pay Bottom_btn" id="COD_BTN">COD<p>(Cash On Delivery)</p></button>
-        </div>
-        <div id="options_entery">
-            <div id="upi_ent" class="option">
-                <div id="app_list">
-                    <div class="app_con"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
-                    <div class="app_con"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></div>
-                    <div class="app_con"><img src="Payment-options/phonepe.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></div>
+
+        <!--Navigation bar-->
+            <section id="nav-bar">
+                <a href="index.html" class="logo"><div id="logo">
+                    <i class="fa-solid fa-snowflake fa-3x"></i>
+                    <h1>Nutrition</h1>
+                </div></a>
+                <div id="options">
+                    <a href="index.html"><h1>Home</h1></a>
+                    <a href="index.html"><h1>Products</h1></a>
+                    <a href="index.html"><h1>About Us</h1></a>
+                    <a href="index.html"><h1>Contact Us</h1></a>
+                    <a href="index.html"><h1>Authenticity</h1></a>
                 </div>
-                <div id="upi_int" class="input_pay">
-                    <label for="Upi_Id">UPI ID:</label><input type="text" name="UPI_ID" placeholder="example@yahoo.in">
+                <div id="ic_options">
+                    <input type="text" placeholder="Search" autocomplete="search" id="nav_search_id">
+                    <div class="search_icon_con" id="search_icon_con">
+                        <div id="search_icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div id="cross_icon"><i class="fa-solid fa-xmark"></i></div>
+                    </div>
+                    <div id="anime">
+                        <a href="cart.html"><i id="anime" class="fa-solid fa-cart-shopping fa-xl"></i></a>
+                        <a href="cart.html"><i id="anime" class="fa-solid fa-user fa-xl"></i></a>
+                        <a href="cart.html"><i id="anime" class="fa-solid fa-sharp fa-heart fa-xl"></i></a>
+                    </div>
                 </div>
-                <div class="submit_btn" id="upi_ent_sbt_btn">
-                    <button id="UPI_SBT_btn">Pay</button>
+            </section>
+        <!--Navigation bar-->
+
+        <section id="all-content">
+            <!--Spacer-->
+            <div id="spacer">
+            </div>
+            <!--Spacer-->
+
+            <div id="Form_Value_Con">
+                <div id="form_value">
+                    <div id="form_con">
+                        <form action="get_billing_address" id="billaddressForm" class="formatter">
+                            <label for="heading" class="form-heading">Billing Address:</label>
+                            <div class="Address-con"><label for="name">Name:</label><input type="text" name="bil_Customer Name" required autocomplete="name" placeholder="Please Enter Your Name"></div>
+                            <div class="Address-con"><label for="contact-no.">Mobile no.:</label><input name="bil_Mobile no." type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Please Enter Your Mobile Number"></div>
+                            <div class="Address-con"><label for="Email-id">Email ID:</label><input name="bil_Email ID" type="text" autocomplete="email" placeholder="Please Enter Your Email ID"></div>
+                            <div class="Address-con"><label for="Address">Address:</label><input type="text" required name="bil_Address" autocomplete="street-address" placeholder="Please Enter Your Address"></div>
+                            <div class="Address-con-sep">
+                                <label for="city-name">City:<input id="city-name" name="bil_City" type="text" required autocomplete="home city" placeholder="Please Enter the Name of your City"></label>
+                                <label for="postal-code">Pin code:<input name="bil_Pincode" id="city-name" type="text" required autocomplete="postal-code" placeholder="Please Enter the Name of your City"></label>
+                            </div>
+                            <div class="Address-con-sep">
+                                <label for="country-name">Country:<input id="city-name" name="bil_Country" type="text" required value="India" autocomplete="country-name" placeholder="Please Enter the Name of your City"></label>
+                                <label for="state-name">State:
+                                    <select id="country-state" name="bil_State">
+                                    <option value="">Select state</option>
+                                    <option value="AN">Andaman and Nicobar Islands</option>
+                                    <option value="AP">Andhra Pradesh</option>
+                                    <option value="AR">Arunachal Pradesh</option>
+                                    <option value="AS">Assam</option>
+                                    <option value="BR">Bihar</option>
+                                    <option value="CH">Chandigarh</option>
+                                    <option value="CT">Chhattisgarh</option>
+                                    <option value="DN">Dadra and Nagar Haveli</option>
+                                    <option value="DD">Daman and Diu</option>
+                                    <option value="DL">Delhi</option>
+                                    <option value="GA">Goa</option>
+                                    <option value="GJ">Gujarat</option>
+                                    <option value="HR">Haryana</option>
+                                    <option value="HP">Himachal Pradesh</option>
+                                    <option value="JK">Jammu and Kashmir</option>
+                                    <option value="JH">Jharkhand</option>
+                                    <option value="KA">Karnataka</option>
+                                    <option value="KL">Kerala</option>
+                                    <option value="LA">Ladakh</option>
+                                    <option value="LD">Lakshadweep</option>
+                                    <option value="MP">Madhya Pradesh</option>
+                                    <option value="MH">Maharashtra</option>
+                                    <option value="MN">Manipur</option>
+                                    <option value="ML">Meghalaya</option>
+                                    <option value="MZ">Mizoram</option>
+                                    <option value="NL">Nagaland</option>
+                                    <option value="OR">Odisha</option>
+                                    <option value="PY">Puducherry</option>
+                                    <option value="PB">Punjab</option>
+                                    <option value="RJ">Rajasthan</option>
+                                    <option value="SK">Sikkim</option>
+                                    <option value="TN">Tamil Nadu</option>
+                                    <option value="TG">Telangana</option>
+                                    <option value="TR">Tripura</option>
+                                    <option value="UP">Uttar Pradesh</option>
+                                    <option value="UT">Uttarakhand</option>
+                                    <option value="WB">West Bengal</option>
+                                    </select></label>
+                            </div>
+                        </form>
+
+                        <div id="checkbox_form" class="formatter"><label class="container"><input id="checkbox_form_input" type="checkbox" checked> My Shipping address is same as Billing address.</label></div>
+
+                        <form action="get_shipping_address" id="shipaddressForm" class="formatter collapse">
+                            <label for="heading" class="form-heading">Shipping Address:</label>
+                            <div class="Address-con"><label for="name">Name:</label><input type="text" name="ship_Customer Name" autocomplete="name" placeholder="Please Enter Your Name"></div>
+                            <div class="Address-con"><label for="contact-no.">Mobile no.:</label><input type="number" name="ship_Mobile no." autocomplete="tel" max="9999999999" min="1111111111" placeholder="Please Enter Your Mobile Number"></div>
+                            <div class="Address-con"><label for="Email-id">Email ID:</label><input type="text" name="ship_Email ID" autocomplete="email" placeholder="Please Enter Your Email ID"></div>
+                            <div class="Address-con"><label for="Address">Address:</label><input type="text" name="ship_Address" autocomplete="street-address" placeholder="Please Enter Your Address"></div>
+                            <div class="Address-con-sep">
+                                <label for="city-name">City:<input id="city-name" type="text" name="ship_City" autocomplete="home city" placeholder="Please Enter the Name of your City"></label>
+                                <label for="postal-code">Pin code:<input id="city-name" name="ship_Pincode" type="text" autocomplete="postal-code" placeholder="Please Enter the Name of your City"></label>
+                            </div>
+                            <div class="Address-con-sep">
+                                <label for="country-name">Country:<input id="city-name" name="ship_Country" type="text" value="India" autocomplete="country-name" placeholder="Please Enter the Name of your City"></label>
+                                <label for="state-name">State:
+                                <select id="country-state" name="ship_State">
+                                    <option value="">Select state</option>
+                                    <option value="AN">Andaman and Nicobar Islands</option>
+                                    <option value="AP">Andhra Pradesh</option>
+                                    <option value="AR">Arunachal Pradesh</option>
+                                    <option value="AS">Assam</option>
+                                    <option value="BR">Bihar</option>
+                                    <option value="CH">Chandigarh</option>
+                                    <option value="CT">Chhattisgarh</option>
+                                    <option value="DN">Dadra and Nagar Haveli</option>
+                                    <option value="DD">Daman and Diu</option>
+                                    <option value="DL">Delhi</option>
+                                    <option value="GA">Goa</option>
+                                    <option value="GJ">Gujarat</option>
+                                    <option value="HR">Haryana</option>
+                                    <option value="HP">Himachal Pradesh</option>
+                                    <option value="JK">Jammu and Kashmir</option>
+                                    <option value="JH">Jharkhand</option>
+                                    <option value="KA">Karnataka</option>
+                                    <option value="KL">Kerala</option>
+                                    <option value="LA">Ladakh</option>
+                                    <option value="LD">Lakshadweep</option>
+                                    <option value="MP">Madhya Pradesh</option>
+                                    <option value="MH">Maharashtra</option>
+                                    <option value="MN">Manipur</option>
+                                    <option value="ML">Meghalaya</option>
+                                    <option value="MZ">Mizoram</option>
+                                    <option value="NL">Nagaland</option>
+                                    <option value="OR">Odisha</option>
+                                    <option value="PY">Puducherry</option>
+                                    <option value="PB">Punjab</option>
+                                    <option value="RJ">Rajasthan</option>
+                                    <option value="SK">Sikkim</option>
+                                    <option value="TN">Tamil Nadu</option>
+                                    <option value="TG">Telangana</option>
+                                    <option value="TR">Tripura</option>
+                                    <option value="UP">Uttar Pradesh</option>
+                                    <option value="UT">Uttarakhand</option>
+                                    <option value="WB">West Bengal</option>
+                                </select></label>
+                            </div>
+                        </form>
+
+                        <div class="Address-con-note formatter"><label for="notes">Notes (Optional):</label><textarea type="text" name="del_notes" placeholder="Please enter any note regarding your order..."></textarea></div>
+
+                        <div class="btn_con"><button id="Add_com_btn">Proceed to Payment</button></div>
+                    </div>
+                    <div id="value_con">
+                        <div id="cart_value_H" class="formatter">
+                            <h1>Cart Value:</h1>
+                            <div class="ind_vlaue_ct" id="ct_subtotal"><h4>Subtotal:</h4><h4 class="value">₹ 0/-</h4></div>
+                            <div class="ind_vlaue_ct" id="ct_coupon_dis"><p>Coupon Discount:</p><p class="value">₹ 0/-</p></div>
+                            <div class="ind_vlaue_ct" id="ct_delivery_ch"><p>Delivery Charges:</p><p class="value">₹ 0/-</p></div>
+                            <div class="divider"></div>
+                            <div class="ind_vlaue_ct" id="ct_payable"><h1>Payable:</h1><h1 class="value">₹ 0/-</h1></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="payment_method" class="formatter">
+                    <div id="pay_options">
+                        <div class="type_btn_con"><input style="display: none;" checked type="radio" name="upi_btn" id="UPI_BTN_checkbox" /><label for="UPI_BTN_checkbox" class="type_btn">UPI<p>(Unified Paym ents Interface)</p></label></div>
+                        <div class="type_btn_con"><input style="display: none;" type="radio" name="upi_btn" id="Card_BTN_checkbox" /><label for="Card_BTN_checkbox" class="type_btn">Pay Via Card</label></div>
+                        <div class="type_btn_con"><input style="display: none;" type="radio" name="upi_btn" id="Wallet_BTN_checkbox" /><label for="Wallet_BTN_checkbox" class="type_btn">Pay Via Wallet</label></div>
+                        <div class="type_btn_con"><input style="display: none;" type="radio" name="upi_btn" id="Net_BTN_checkbox" /><label for="Net_BTN_checkbox" class="type_btn">Netbanking</label></div>
+                        <div class="type_btn_con"><input style="display: none;" type="radio" name="upi_btn" id="COD_BTN_checkbox" /><label for="COD_BTN_checkbox" class="type_btn">COD<p>(Cash On Delivery)</p></label></div>
+                    </div>
+                    <div id="options_entery">
+                        <div id="UPI_BTN" class="option">
+                            <div id="app_list">
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="upi_checkbox" style="display: none;"><label for="upi_checkbox" class="app_image-label"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="upi_checkbox1" style="display: none;"><label for="upi_checkbox1" class="app_image-label"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="upi_checkbox2" style="display: none;"><label for="upi_checkbox2" class="app_image-label"><img src="Payment-options/phonepe.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></label></div>
+                            </div>
+                            <div id="upi_int" class="input_pay">
+                                <label for="Upi_Id">UPI ID:<input type="text" name="UPI_ID" placeholder="example@yahoo.in"></label>
+                                <button id="UPI_SBT_btn">Pay</button>
+                            </div>
+                        </div>
+                        <div id="Card_BTN" class="option collapse_pay">
+                            <div class="pay_input">
+                                <label for="card_num">Card Number: <input type="text" class="card_num_int" autocomplete="cc-number" id="card-number" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required></label>
+                            </div>
+                            <div class="pay_input_sep">
+                                <label for="expiry-date" class="card_num_lab">Expiry:<input type="text" id="expiry-date" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY" required></label>
+                                <label for="cvv" class="card_num_lab">CVV:<input type="text" id="cvvint" maxlength="3" autocomplete="cc-csc" placeholder="000" required></label>
+                            </div>
+                            <div class="pay_input">
+                                <label for="card-name" class="card_num_lab">Name on Card:<input type="text" id="card-name" class="card_name_int" autocomplete="cc-name" required placeholder="Name on Card"></label>
+                            </div>
+                            <div class="pay_input">
+                                <button id="card_SBT_btn">Pay</button>
+                            </div>
+                        </div>
+                        <div id="Wallet_BTN" class="option collapse_pay">
+                            <div id="app_list">
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox" style="display: none;"><label for="app_checkbox" class="app_image-label"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox1" style="display: none;"><label for="app_checkbox1" class="app_image-label"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox2" style="display: none;"><label for="app_checkbox2" class="app_image-label"><img src="Payment-options/phonepe.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox3" style="display: none;"><label for="app_checkbox3" class="app_image-label"><img src="Payment-options/mobikwik.png" alt="Phone_pay_logo"><h1>Mobikwik</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox4" style="display: none;"><label for="app_checkbox4" class="app_image-label"><img src="Payment-options/amazon.png" alt="Phone_pay_logo"><h1>Amazon</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox5" style="display: none;"><label for="app_checkbox5" class="app_image-label"><img src="Payment-options/bhimupi.png" alt="Bhim_UPI_logo"><h1>BHIM</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox6" style="display: none;"><label for="app_checkbox6" class="app_image-label"><img src="Payment-options/paypl.png" alt="Paypal_logo"><h1>PayPal</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox7" style="display: none;"><label for="app_checkbox7" class="app_image-label"><img src="Payment-options/payzapp.png" alt="payzapp_logo"><h1>PayZapp</h1></label></div>
+                                <div class="app_con"><input type="radio" name="net_bank_int" id="app_checkbox8" style="display: none;"><label for="app_checkbox8" class="app_image-label"><img src="Payment-options/yonosbi.png" alt="yonosbi_logo"><h1>Yono</h1></label></div>
+                            </div>
+                        </div>
+                        <div id="Net_BTN" class="option collapse_pay">
+                            <form action="get_bank_name_for_netbanking" id="form_netbanking">
+                                <div class="Bank_logo_con">
+                                    <input type="radio" name="net_bank_int" id="checkbox" style="display: none;"><label for="checkbox" class="image-label"><img class="bank_logo" src="Banks/627ccdf71b2e263b45696ab8.png" alt="Kotak"></label>
+                                    <input type="radio" name="net_bank_int" id="checkbox1" style="display: none;"><label for="checkbox1" class="image-label"><img class="bank_logo" src="Banks/AXIS.png" alt="Axis"></label>
+                                    <input type="radio" name="net_bank_int" id="checkbox2" style="display: none;"><label for="checkbox2" class="image-label"><img class="bank_logo" src="Banks/HDFC.png" alt="HDFC"></label>
+                                    <input type="radio" name="net_bank_int" id="checkbox3" style="display: none;"><label for="checkbox3" class="image-label"><img class="bank_logo" src="Banks/ICICI.png" alt="ICICI"></label>
+                                    <input type="radio" name="net_bank_int" id="checkbox4" style="display: none;"><label for="checkbox4" class="image-label"><img class="bank_logo" src="Banks/SBI.png" alt="SBI"></label>
+                                    <input type="radio" name="net_bank_int" id="checkbox5" style="display: none;"><label for="checkbox5" class="image-label"><img class="bank_logo" src="Banks/PNB.png" alt="ICICI"></label>
+                                    </div>
+                                <div id="net_bank_list_con" class="">
+                                <label for="Bank_name">Please select the Bank:</label>
+                                <select name="netBankingBank" id="netBankingBank" class="span12 noradius payoptselect valid">
+                                    <option value="">Select Bank</option>
+                                    <option id="" value="State Bank of India" class="ACTI N">State Bank of India</option>
+                                    <option id="" value="ICICI Bank" class="ACTI N">ICICI Bank</option>
+                                    <option id="" value="HDFC Bank" class="ACTI N">HDFC Bank</option>
+                                    <option id="" value="Kotak Mahindra Bank" class="ACTI N">Kotak Mahindra Bank</option>
+                                    <option id="" value="Axis Bank" class="ACTI N">Axis Bank</option>
+                                    <option id="" value="Airtel Payments Bank" class="ACTI N">Airtel Payments Bank</option>
+                                    <option id="" value="AU SFB Corporate Net Banking" class="ACTI N">AU SFB Corporate Net Banking</option>
+                                    <option id="" value="AU Small Finance Bank" class="ACTI N">AU Small Finance Bank</option>
+                                    <option id="" value="Bandhan Bank" class="ACTI N">Bandhan Bank</option>
+                                    <option id="" value="Bank of Baroda Corporate" class="ACTI N">Bank of Baroda Corporate</option>
+                                    <option id="" value="Bank of Baroda Retail" class="ACTI N">Bank of Baroda Retail</option>
+                                    <option id="" value="Bank of India" class="ACTI N">Bank of India</option>
+                                    <option id="" value="Bank of Maharashtra" class="ACTI N">Bank of Maharashtra</option>
+                                    <option id="" value="Canara Bank" class="ACTI N">Canara Bank</option>
+                                    <option id="" value="Catholic Syrian Bank" class="ACTI N">Catholic Syrian Bank</option>
+                                    <option id="" value="Central Bank of India" class="ACTI N">Central Bank of India</option>
+                                    <option id="" value="City Union Bank" class="ACTI N">City Union Bank</option>
+                                    <option id="" value="Cosmos Bank" class="ACTI N">Cosmos Bank</option>
+                                    <option id="" value="DCB Bank" class="ACTI N">DCB Bank</option>
+                                    <option id="" value="DCB BANK Business" class="ACTI N">DCB BANK Business</option>
+                                    <option id="" value="Deutsche Bank" class="ACTI N">Deutsche Bank</option>
+                                    <option id="" value="Dhanlaxmi Bank" class="ACTI N">Dhanlaxmi Bank</option>
+                                    <option id="" value="Equitas Small Finance Bank" class="ACTI N">Equitas Small Finance Bank</option>
+                                    <option id="" value="Federal Bank" class="ACTI N">Federal Bank</option>
+                                    <option id="" value="HSBC" class="ACTI N">HSBC</option>
+                                    <option id="" value="IDBI Bank" class="ACTI N">IDBI Bank</option>
+                                    <option id="" value="IDFC FIRST Bank" class="ACTI N">IDFC FIRST Bank</option>
+                                    <option id="" value="Indian Bank" class="ACTI N">Indian Bank</option>
+                                    <option id="" value="Indian Overseas Bank" class="ACTI N">Indian Overseas Bank</option>
+                                    <option id="" value="IndusInd Bank" class="ACTI N">IndusInd Bank</option>
+                                    <option id="" value="Jammu and kashmir Bank" class="ACTI N">Jammu and kashmir Bank</option>
+                                    <option id="" value="Jana Small Finance Bank" class="ACTI N">Jana Small Finance Bank</option>
+                                    <option id="" value="JANATA SAHAKARI BANK LTD PUNE" class="ACTI N">JANATA SAHAKARI BANK LTD PUNE</option>
+                                    <option id="" value="Karnataka Bank" class="ACTI N">Karnataka Bank</option>
+                                    <option id="" value="Karur Vysya Bank" class="ACTI N">Karur Vysya Bank</option>
+                                    <option id="" value="NKGSB Co-op Bank Ltd" class="ACTI N">NKGSB Co-op Bank Ltd</option>
+                                    <option id="" value="Punjab National Bank [Corporate]" class="ACTI N">Punjab National Bank [Corporate]</option>
+                                    <option id="" value="Punjab National Bank [Retail]" class="ACTI N">Punjab National Bank [Retail]</option>
+                                    <option id="" value="RBL Bank" class="ACTI N">RBL Bank</option>
+                                    <option id="" value="Saraswat Bank" class="ACTI N">Saraswat Bank</option>
+                                    <option id="" value="South Indian Bank" class="ACTI N">South Indian Bank</option>
+                                    <option id="" value="Standard Chartered Bank" class="ACTI N">Standard Chartered Bank</option>
+                                    <option id="Suryoday Small Finance Bank Ltd" value="Suryoday Small Finance Bank Ltd" class="DOWN N">Suryoday Small Finance Bank Ltd</option>
+                                    <option id="" value="SVC Co-operative Bank Ltd" class="ACTI N">SVC Co-operative Bank Ltd</option>
+                                    <option id="" value="Tamilnad Mercantile Bank" class="ACTI N">Tamilnad Mercantile Bank</option>
+                                    <option id="" value="UCO Bank" class="ACTI N">UCO Bank</option>
+                                    <option id="" value="UCO Bank Corporate Account" class="ACTI N">UCO Bank Corporate Account</option>
+                                    <option id="" value="Ujjivan Small Finance Bank" class="ACTI N">Ujjivan Small Finance Bank</option>
+                                    <option id="" value="Union Bank of India" class="ACTI N">Union Bank of India</option>
+                                    <option id="" value="YES Bank" class="ACTI N">YES Bank</option>
+                                </select>
+                                </div>
+                                <div class="pay_input net_bank_btn">
+                                    <button id="card_SBT_btn">Pay</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="COD_BTN" class="option collapse_pay">
+                            <h3 id="cod_message">Kindly pay the Amount of <strong>Rs. 5290/- </strong>to the delivery agent.</h3>
+                            <div class="pay_input net_bank_btn">
+                                <button id="COD_SBT_btn">Pay</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="card_ent" class="option collapse_pay">
-                <form id="payment-form">
-                    <div class="card_num_con">
-                        <div class="lab_logo">
-                            <label for="card-number" class="card_num_lab">Card Number:</label>
-                        </div>
-                        <div class="int_logo">
-                            <input type="text" class="card_num_int" autocomplete="cc-number" id="card-number" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
-                            <img src="Card-provider/CARD.png" alt="Card Logo" class="card-logo" id="card-logo">
-                        </div>
-                    </div>
-                    <div class="card_date_cvv_con">
-                        <div>
-                            <label for="expiry-date" class="card_num_lab">Expiry:</label>
-                            <input type="text" id="expiry-date" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY" required>
-                        </div>
-                        <div>
-                            <label for="cvv" class="card_num_lab">CVV:</label>
-                            <input type="text" id="cvvint" maxlength="3" autocomplete="cc-csc" placeholder="000" required>
-                        </div>
-                    </div>
-                    <div class="card_name_con">
-                        <label for="card-name" class="card_num_lab">Name on Card:</label>
-                        <input type="text" id="card-name" class="card_name_int" autocomplete="cc-name" required placeholder="Name on Card">
-                    </div>
-                    <div class="submit_btn" id="CARD_ent_sbt_btn">
-                        <button id="UPI_SBT_btn">Pay</button>
-                    </div>
+        </section>
+
+        <script src="check out.js"></script>
+    </body>
+    <!--Footer start-->
+    <!--Footer start-->
+    <footer class="section-1">
+        <section id="newslater">
+            <div id="heading-news">
+                <img src="images/MAIL.png" alt="Mail Icon">
+                <h1>Subscribe for Our Offers, Deals and Newslater</h1>
+            </div>
+            <div class="form_con">
+                <form id="Footer-form">
+                    <label for="name">Full Name:</label><input type="text" autocomplete="name" required placeholder="Full Name" name="name" id="name">
+                    <label for="email">Eamil ID:</label><input type="email" autocomplete="email" required placeholder="Email ID" id="email" name="email">
+                    <label for="contact">Mobile Number:</label><input type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Mobile Number" id="contact" name="contact">
+                    <input type="submit" value="submit" id="footer_form_button">
                 </form>
             </div>
-            <div id="wallet_int" class="option collapse_pay">
-                <div id="app_list">
-                    <div class="app_con"><img src="Payment-options/googlepay.png" alt="Google_pay_logo"><h1>Google Pay</h1></div>
-                    <div class="app_con"><img src="Payment-options/paytm.png" alt="Paytm_logo"><h1>PayTM</h1></div>
-                    <div class="app_con"><img src="Payment-options/phonepe.png" alt="Phone_pay_logo"><h1>Phone Pay</h1></div>
-                    <div class="app_con"><img src="Payment-options/mobikwik.png" alt="Phone_pay_logo"><h1>Mobikwik</h1></div>
-                    <div class="app_con"><img src="Payment-options/amazon.png" alt="Phone_pay_logo"><h1>Amazon</h1></div>
-                </div>
-                <div id="app_list">
-                    <div class="app_con"><img src="Payment-options/bhimupi.png" alt="Bhim_UPI_logo"><h1>BHIM</h1></div>
-                    <div class="app_con"><img src="Payment-options/paypl.png" alt="Paypal_logo"><h1>PayPal</h1></div>
-                    <div class="app_con"><img src="Payment-options/payzapp.png" alt="payzapp_logo"><h1>PayZapp</h1></div>
-                    <div class="app_con"><img src="Payment-options/yonosbi.png" alt="yonosbi_logo"><h1>Yono</h1></div>
-                </div>
+        </section>
+
+        <section id="footer">
+            <div class="col">
+                <a href="index.html" class="footer-logo"><div id="footer-logo-div">
+                    <i class="fa-solid fa-snowflake fa-6x"></i>
+                    <h1>Nutrition</h1>
+                </div></a>
+                <h4>Contact Us:</h4>
+                <p><strong>Address: </strong>Brand, 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</p>
+                <p><strong>Phone: </strong>+91 9877777777</p>
+                <p><strong>Hours: </strong>Mon - Sat, 10:00 AM to 06:00 PM</p>
+
             </div>
-            <div id="netbanking_int" class="option collapse_pay">
-                <form action="get_bank_name_for_netbanking" id="form_netbanking">
-                    <div class="Bank_logo_con">
-                        <input type="radio" name="net_bank_int" id="checkbox" style="display: none;"><label for="checkbox" class="image-label"><img class="bank_logo" src="Banks/627ccdf71b2e263b45696ab8.png" alt="Kotak"></label>
-                        <input type="radio" name="net_bank_int" id="checkbox1" style="display: none;"><label for="checkbox1" class="image-label"><img class="bank_logo" src="Banks/AXIS.png" alt="Axis"></label>
-                        <input type="radio" name="net_bank_int" id="checkbox2" style="display: none;"><label for="checkbox2" class="image-label"><img class="bank_logo" src="Banks/HDFC.png" alt="HDFC"></label>
-                        <input type="radio" name="net_bank_int" id="checkbox3" style="display: none;"><label for="checkbox3" class="image-label"><img class="bank_logo" src="Banks/ICICI.png" alt="ICICI"></label>
-                        <input type="radio" name="net_bank_int" id="checkbox4" style="display: none;"><label for="checkbox4" class="image-label"><img class="bank_logo" src="Banks/SBI.png" alt="SBI"></label>
-                    </div>
-                    <div class="Bank_logo_con">
-                        <input type="radio" name="net_bank_int" id="checkbox5" style="display: none;"><label for="checkbox5" class="image-label"><img class="bank_logo" src="Banks/PNB.png" alt="ICICI"></label>
-                        <input type="radio" name="net_bank_int" id="checkbox6" style="display: none;"><label for="checkbox6" class="image-label"><img class="bank_logo" src="Banks/other.png" alt="PNB"></label>
-                    </div>
-                    <div id="net_bank_list_con" class="collapse_pay">
-                    <label for="Bank_name">Please select the Bank:</label>
-                    <select name="netBankingBank" id="netBankingBank" class="span12 noradius payoptselect valid">
-                        <option value="">Select Bank</option>
-                        <option id="" value="State Bank of India" class="ACTI N">State Bank of India</option>
-                        <option id="" value="ICICI Bank" class="ACTI N">ICICI Bank</option>
-                        <option id="" value="HDFC Bank" class="ACTI N">HDFC Bank</option>
-                        <option id="" value="Kotak Mahindra Bank" class="ACTI N">Kotak Mahindra Bank</option>
-                        <option id="" value="Axis Bank" class="ACTI N">Axis Bank</option>
-                        <option id="" value="Airtel Payments Bank" class="ACTI N">Airtel Payments Bank</option>
-                        <option id="" value="AU SFB Corporate Net Banking" class="ACTI N">AU SFB Corporate Net Banking</option>
-                        <option id="" value="AU Small Finance Bank" class="ACTI N">AU Small Finance Bank</option>
-                        <option id="" value="Bandhan Bank" class="ACTI N">Bandhan Bank</option>
-                        <option id="" value="Bank of Baroda Corporate" class="ACTI N">Bank of Baroda Corporate</option>
-                        <option id="" value="Bank of Baroda Retail" class="ACTI N">Bank of Baroda Retail</option>
-                        <option id="" value="Bank of India" class="ACTI N">Bank of India</option>
-                        <option id="" value="Bank of Maharashtra" class="ACTI N">Bank of Maharashtra</option>
-                        <option id="" value="Canara Bank" class="ACTI N">Canara Bank</option>
-                        <option id="" value="Catholic Syrian Bank" class="ACTI N">Catholic Syrian Bank</option>
-                        <option id="" value="Central Bank of India" class="ACTI N">Central Bank of India</option>
-                        <option id="" value="City Union Bank" class="ACTI N">City Union Bank</option>
-                        <option id="" value="Cosmos Bank" class="ACTI N">Cosmos Bank</option>
-                        <option id="" value="DCB Bank" class="ACTI N">DCB Bank</option>
-                        <option id="" value="DCB BANK Business" class="ACTI N">DCB BANK Business</option>
-                        <option id="" value="Deutsche Bank" class="ACTI N">Deutsche Bank</option>
-                        <option id="" value="Dhanlaxmi Bank" class="ACTI N">Dhanlaxmi Bank</option>
-                        <option id="" value="Equitas Small Finance Bank" class="ACTI N">Equitas Small Finance Bank</option>
-                        <option id="" value="Federal Bank" class="ACTI N">Federal Bank</option>
-                        <option id="" value="HSBC" class="ACTI N">HSBC</option>
-                        <option id="" value="IDBI Bank" class="ACTI N">IDBI Bank</option>
-                        <option id="" value="IDFC FIRST Bank" class="ACTI N">IDFC FIRST Bank</option>
-                        <option id="" value="Indian Bank" class="ACTI N">Indian Bank</option>
-                        <option id="" value="Indian Overseas Bank" class="ACTI N">Indian Overseas Bank</option>
-                        <option id="" value="IndusInd Bank" class="ACTI N">IndusInd Bank</option>
-                        <option id="" value="Jammu and kashmir Bank" class="ACTI N">Jammu and kashmir Bank</option>
-                        <option id="" value="Jana Small Finance Bank" class="ACTI N">Jana Small Finance Bank</option>
-                        <option id="" value="JANATA SAHAKARI BANK LTD PUNE" class="ACTI N">JANATA SAHAKARI BANK LTD PUNE</option>
-                        <option id="" value="Karnataka Bank" class="ACTI N">Karnataka Bank</option>
-                        <option id="" value="Karur Vysya Bank" class="ACTI N">Karur Vysya Bank</option>
-                        <option id="" value="NKGSB Co-op Bank Ltd" class="ACTI N">NKGSB Co-op Bank Ltd</option>
-                        <option id="" value="Punjab National Bank [Corporate]" class="ACTI N">Punjab National Bank [Corporate]</option>
-                        <option id="" value="Punjab National Bank [Retail]" class="ACTI N">Punjab National Bank [Retail]</option>
-                        <option id="" value="RBL Bank" class="ACTI N">RBL Bank</option>
-                        <option id="" value="Saraswat Bank" class="ACTI N">Saraswat Bank</option>
-                        <option id="" value="South Indian Bank" class="ACTI N">South Indian Bank</option>
-                        <option id="" value="Standard Chartered Bank" class="ACTI N">Standard Chartered Bank</option>
-                        <option id="Suryoday Small Finance Bank Ltd" value="Suryoday Small Finance Bank Ltd" class="DOWN N">Suryoday Small Finance Bank Ltd</option>
-                        <option id="" value="SVC Co-operative Bank Ltd" class="ACTI N">SVC Co-operative Bank Ltd</option>
-                        <option id="" value="Tamilnad Mercantile Bank" class="ACTI N">Tamilnad Mercantile Bank</option>
-                        <option id="" value="UCO Bank" class="ACTI N">UCO Bank</option>
-                        <option id="" value="UCO Bank Corporate Account" class="ACTI N">UCO Bank Corporate Account</option>
-                        <option id="" value="Ujjivan Small Finance Bank" class="ACTI N">Ujjivan Small Finance Bank</option>
-                        <option id="" value="Union Bank of India" class="ACTI N">Union Bank of India</option>
-                        <option id="" value="YES Bank" class="ACTI N">YES Bank</option>
-                    </select>
-                    </div>
-                    <div class="submit_btn" id="CARD_ent_sbt_btn">
-                        <button id="NetBank_SBT_btn">Pay</button>
-                    </div>
-                </form>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
             </div>
-            <div id="COD_int" class="option collapse_pay">
-                <h3 id="cod_message">Kindly pay the Amount of <strong>Rs. 5290/- </strong>to the delivery agent.</h3>
-                <div class="submit_btn" id="CARD_ent_sbt_btn">
-                    <button id="COD_SBT_btn">Pay</button>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">My Orders</a>
+                <a href="#">Helps</a>
+            </div>
+
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App store or Google Play</p>
+                <div class="row">
+                    <a href="https://www.apple.com/in/app-store/"><i id="apps" class="fa-brands fa-app-store-ios fa-3x"></i></a>
+                    <a href="https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700065205026415_creativeid_535350509927_device_c&gclid=CjwKCAiAmJGgBhAZEiwA1JZolgdrHOyTts-avoe3MnlIru_Ikrzg3JsOjMldvmVRxk5ZV6SoB8XPNhoCkLkQAvD_BwE&gclsrc=aw.ds"><i id="apps" class="fa-brands fa-google-play fa-3x"></i></a>
+                </div>
+                <p>Secured Payment Gateways</p>
+                <div class="row">
+                    <i class="fa-brands fa-cc-visa fa-2x"></i>
+                    <i class="fa-brands fa-cc-mastercard fa-2x"></i>
+                    <i class="fa-brands fa-google-pay fa-2x"></i>
+                    <i class="fa-brands fa-paypal fa-2x"></i>
+                    <i class="fa-brands fa-amazon-pay fa-2x"></i>
+                    <i class="fa-brands fa-apple-pay fa-2x"></i>
+                </div>
+                <div class="follow">
+                    <h4>Follow us:</h4>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook fa-2x"></i>
+                        <i class="fa-brands fa-instagram fa-2x"></i>
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                        <i class="fa-brands fa-pinterest fa-2x"></i>
+                        <i class="fa-brands fa-youtube fa-2x"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-    <script src="check out.js"></script>
-</body>
-<!--Footer start-->
-<footer class="section-1">
-
-    <section id="newslater">
-        <div id="heading-news">
-            <h1>Subscribe for Our Offers, Deals and Newslater</h1>
-        </div>
-        <form action="subscriber-generator">
-            <label for="name">Full Name:</label><input type="text" autocomplete="name" required placeholder="Full Name">
-            <label for="name">Eamil ID:</label><input type="email" autocomplete="email" required placeholder="Email ID">
-            <label for="name">Mobile Number:</label><input type="number" autocomplete="tel" max="9999999999" min="1111111111" required placeholder="Mobile Number">
-            <button id="submit">Submit</button>
-        </form>
-    </section>
-
-    <section id="footer">
-        <div class="col">
-            <a href="index.html"><i id="footer-logo" class="fa-solid fa-snowflake fa-6x logo"></i></a>
-        <h4>Contact Us:</h4>
-        <p><strong>Address: </strong>Brand, 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</p>
-        <p><strong>Phone: </strong>+91 9877777777</p>
-        <p><strong>Hours: </strong>Mon - Sat, 10:00 AM to 06:00 PM</p>
-        <div class="follow">
-            <h4>Follow us:</h4>
-            <div class="icon">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-pinterest"></i>
-                <i class="fa-brands fa-youtube"></i>
-            </div>
-        </div>
-        </div>
-
-        <div class="col">
-        <h4>About</h4>
-        <a href="#">About us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-        </div>
-
-        <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">My Orders</a>
-        <a href="#">Helps</a>
-        </div>
-
-        <div class="col install">
-        <h4>Install App</h4>
-        <p>From App store or Google Play</p>
-        <div class="row">
-            <a href="https://www.apple.com/in/app-store/"><i id="apps" class="fa-brands fa-app-store-ios fa-3x"></i></a>
-            <a href="https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700065205026415_creativeid_535350509927_device_c&gclid=CjwKCAiAmJGgBhAZEiwA1JZolgdrHOyTts-avoe3MnlIru_Ikrzg3JsOjMldvmVRxk5ZV6SoB8XPNhoCkLkQAvD_BwE&gclsrc=aw.ds"><i id="apps" class="fa-brands fa-google-play fa-3x"></i></a>
-        </div>
-        <p>Secured Payment Gateways</p>
-        <div class="row">
-            <i class="fa-brands fa-cc-visa fa-2x"></i>
-            <i class="fa-brands fa-cc-mastercard fa-2x"></i>
-            <i class="fa-brands fa-google-pay fa-2x"></i>
-            <i class="fa-brands fa-paypal fa-2x"></i>
-            <i class="fa-brands fa-amazon-pay fa-2x"></i>
-            <i class="fa-brands fa-apple-pay fa-2x"></i>
-        </div>
-        </div>
+        </section>
         <div class="copy">
-        </i><p>© 2023, Tech2 etc - HTML CSS Ecommerce Template</p>
+            <p>© 2023, Tech2 etc - HTML CSS Ecommerce Template</p>
         </div>
-    </section>
-</section>
-</footer>
-<!--Footer end-->
+    </footer>
+    <!--Footer end-->
 </html>

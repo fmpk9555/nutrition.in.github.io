@@ -157,11 +157,64 @@ html {
   height: 60px;
 }
 
-#Pop-up {
-  width: 0;
-  height: 0;
+#Notification {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.541);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.not-show {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 100;
+}
+
+.not-hide {
   opacity: 0;
-  z-index: -10;
+}
+
+.not-body {
+  padding: 2.5%;
+  height: max-content;
+  width: 45%;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+#not_close_btn {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(231, 38, 38, 0.575);
+  outline: none;
+  background-color: rgba(233, 76, 76, 0.534);
+}
+
+#not_content {
+  width: 95%;
+  height: 95%;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#form_value {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
 }
 
 /*Product Images*/
@@ -183,7 +236,7 @@ html {
   display: flex;
   align-items: top;
   justify-content: space-between;
-  top: 80px;
+  top: 110px;
   height: 100%;
   gap: 2%;
 }

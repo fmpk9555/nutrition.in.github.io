@@ -58,6 +58,24 @@
         }
 
     }
+
+    {//notification
+        const notification = document.getElementById('Notification');
+        const not_content = document.getElementById('not_content');
+        const not_close_btn = document.getElementById('not_close_btn');
+
+        not_close_btn.addEventListener('click', function () {
+            notification.classList.add('not-hide');
+            notification.classList.remove('not-show');
+            not_content.innerHTML = ``;
+        })
+
+        function show_notification(content) {
+            notification.classList.remove('not-hide');
+            notification.classList.add('not-show');
+            not_content.innerHTML = content;
+        }
+    }
 }
 
 {//Page Operations
@@ -82,14 +100,14 @@
     var zoom_img = 0;
 
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
-    .then(response => response.json())
-    .then(data => {
-        data.values.forEach(product => {
-            const [Product_Type, SKU, Variation, Variation_No, Variation_SKU, Variation_Type, Variation_Value, HSN, FSSAI, Brand_Name, Product_Title, Flavor, Size, Diet_Type, Stock, MRP, Discount_Type, Discount, Offer_Price, Settlement_Value, Bullet_Point_1, Bullet_Point_2, Bullet_Point_3, Bullet_Point_4, Bullet_Point_5, Usage_Direction, Image_1, Image_2, Image_3, Image_4, Image_5, Image_6, Image_7, Image_8, Description, Length, Width, Height, Weight, Manufacturer, Manufacturer_Address, MFG_Date, Self_Life_Months, Form, Storage_Type, Color, Heat_Sesitive, Total_Rating, Total_Reviews, User_Pic_1, User_Name_1, User_date_1, User_Note_1, Review_1, Comment_1, User_Pic_2, User_Name_2, User_date_2, User_Note_2, Review_2, Comment_2, User_Pic_3, User_Name_3, User_date_3, User_Note_3, Review_3, Comment_3, User_Pic_4, User_Name_4, User_date_4, User_Note_4, Review_4, Comment_4, User_Pic_5, User_Name_5, User_date_5, User_Note_5, Review_5, Comment_5
-            ] = product;
+        .then(response => response.json())
+        .then(data => {
+            data.values.forEach(product => {
+                const [Product_Type, SKU, Variation, Variation_No, Variation_SKU, Variation_Type, Variation_Value, HSN, FSSAI, Brand_Name, Product_Title, Flavor, Size, Diet_Type, Stock, MRP, Discount_Type, Discount, Offer_Price, Settlement_Value, Bullet_Point_1, Bullet_Point_2, Bullet_Point_3, Bullet_Point_4, Bullet_Point_5, Usage_Direction, Image_1, Image_2, Image_3, Image_4, Image_5, Image_6, Image_7, Image_8, Description, Length, Width, Height, Weight, Manufacturer, Manufacturer_Address, MFG_Date, Self_Life_Months, Form, Storage_Type, Color, Heat_Sesitive, Total_Rating, Total_Reviews, User_Pic_1, User_Name_1, User_date_1, User_Note_1, Review_1, Comment_1, User_Pic_2, User_Name_2, User_date_2, User_Note_2, Review_2, Comment_2, User_Pic_3, User_Name_3, User_date_3, User_Note_3, Review_3, Comment_3, User_Pic_4, User_Name_4, User_date_4, User_Note_4, Review_4, Comment_4, User_Pic_5, User_Name_5, User_date_5, User_Note_5, Review_5, Comment_5
+                ] = product;
 
-            if (Variation_SKU === sSKU) {
-                {//Product Images
+                if (Variation_SKU === sSKU) {
+                    {//Product Images
                         const pr_img_1 = document.getElementById('pr-img-1');
                         pr_img_1.src = Image_1;
                         const hero_img = document.getElementById('hero-Image');
@@ -108,9 +126,9 @@
                         pr_img_7.src = Image_7;
                         const pr_img_8 = document.getElementById('pr-img-8');
                         pr_img_8.src = Image_8;
-                }
+                    }
 
-                {//Product Name brand and Rating
+                    {//Product Name brand and Rating
                         const brand_name = document.getElementById('pr_brand_name');
                         brand_name.textContent = Brand_Name;
 
@@ -129,9 +147,9 @@
                         const totalrating = document.createElement('p');
                         totalrating.textContent = `(${Total_Reviews})`;
                         pr_hero_rating.appendChild(totalrating);
-                }
+                    }
 
-                {//MRP, Price, Dis, Wishlist, Share
+                    {//MRP, Price, Dis, Wishlist, Share
                         const pr_mrp = document.getElementById('pr_mrp');
                         pr_mrp.innerHTML = `MRP: <span>₹${MRP}/-</span>`;
 
@@ -148,9 +166,9 @@
                         dis_tag_end.textContent = "OFF";
 
 
-                }
+                    }
 
-                {//check variation availability
+                    {//check variation availability
                         if (Variation == "No-Variation") {
                             const variantionH = document.getElementById('variantionH');
                             variantionH.innerHTML = `
@@ -160,9 +178,9 @@
                         } else {
                             variationcreator();
                         }
-                }
+                    }
 
-                {
+                    {
                         const Bullet_Point_H = document.getElementById('Bullet_Point_H');
                         Bullet_Point_H.innerHTML = `
                         <li>${Bullet_Point_1}</li>
@@ -171,9 +189,9 @@
                         <li>${Bullet_Point_4}</li>
                         <li>${Bullet_Point_5}</li>
                         `
-                }
+                    }
 
-                {
+                    {
                         const pr_identifier = document.getElementById('pr_identifier');
                         pr_identifier.innerHTML = `
                         <P><strong>SKU:</strong> ${Variation_SKU}</P>
@@ -183,9 +201,9 @@
                         <P><strong>Flavor:</strong> ${Flavor}</P>
                         <P><strong>Diet Type:</strong> ${Diet_Type}</P>
                         `;
-                }
+                    }
 
-                {//Product Description
+                    {//Product Description
                         const Description_Con = document.getElementById('Description_Con');
                         Description_Con.textContent = Description;
 
@@ -202,9 +220,9 @@
                             Des_H.classList.remove('Des_H_Con_Active');
                             UD_H.classList.add('Des_H_Con_Active');
                         })
-                }
+                    }
 
-                {//Review Generator
+                    {//Review Generator
                         const total_rew_sum = document.getElementById('total_rew_sum');
                         total_rew_sum.textContent = Total_Rating;
 
@@ -227,9 +245,9 @@
                         reviews_of_product[3] = [User_Pic_4, User_Name_4, User_date_4, User_Note_4, Review_4, Comment_4]
                         reviews_of_product[4] = [User_Pic_5, User_Name_5, User_date_5, User_Note_5, Review_5, Comment_5]
                         reviewwriter();
-                }
+                    }
 
-                {//Related Products
+                    {//Related Products
                         const range = 'A2:j';
 
                         fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${rel_sheet_name}!${range}?key=${API_KEY}`)
@@ -243,9 +261,9 @@
                                 }
                             })
                     }
-            }
+                }
+            })
         })
-    })
 
 
 
@@ -503,27 +521,29 @@
             })
     }
 
-    function generate_data_to_write () {
+    function generate_data_to_write() {
         const selectedQTY = document.getElementById('qtyH').textContent;
-        console.log(selectedQTY);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var requestOptions = {
-        method: "post",
-        headers: myHeaders,
-        redirect: "follow",
-        body: JSON.stringify([[username, sentSKU, sSKU, selectedQTY, `=vlookup("${sSKU}",Products!E:BE,6,false)`, `=vlookup("${sSKU}",Products!E:BE,7,false)`, `=vlookup("${sSKU}",Products!E:BE,23,false)`, `=vlookup("${sSKU}",Products!E:BE,9,false)`, `=vlookup("${sSKU}",Products!E:BE,8,false)`, `=vlookup("${sSKU}",Products!E:BE,12,false)`, `=vlookup("${sSKU}",Products!E:BE,14,false)`, `=vlookup("${sSKU}",Products!E:BE,15,false)` ]])
+            method: "post",
+            headers: myHeaders,
+            redirect: "follow",
+            body: JSON.stringify([[username, sentSKU, sSKU, selectedQTY, `=vlookup("${sSKU}",Products!E:BE,6,false)`, `=vlookup("${sSKU}",Products!E:BE,7,false)`, `=vlookup("${sSKU}",Products!E:BE,23,false)`, `=vlookup("${sSKU}",Products!E:BE,9,false)`, `=vlookup("${sSKU}",Products!E:BE,8,false)`, `=vlookup("${sSKU}",Products!E:BE,12,false)`, `=vlookup("${sSKU}",Products!E:BE,14,false)`, `=vlookup("${sSKU}",Products!E:BE,15,false)`]])
         };
-        
+
         fetch("https://v1.nocodeapi.com/kumarpintu9555/google_sheets/OAJVjKyAUvWCdxrY?tabId=Cart", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-        
-        alert(`Added to Cart, Thank you.`);
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+            var message = `<h3>Your Product has been added to card</h3>
+            <button style="margin-top: 20px; border: none; outline: none; background-color: rgb(231, 205, 120); padding: 8px" class="buybtn"><a href="cart.html" style="text-decoration: none; color: black;">View Cart</a></button>
+            <h3 style="margin-top: 20px;">Thank you.</h3>`;        
+            show_notification(message);
     }
 
     const addtocartbtn = document.getElementById('addtocartbtn');
-    addtocartbtn.addEventListener('click',generate_data_to_write);
+    addtocartbtn.addEventListener('click', generate_data_to_write);
 };
