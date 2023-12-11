@@ -186,7 +186,7 @@
   }
 
   {//Top Selling
-    const range = 'B12:I17';
+    const range = 'B12:J17';
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
@@ -279,7 +279,7 @@
   }
 
   {//new-launch
-    const range = 'B20:I26';
+    const range = 'B20:J26';
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${sheet_name}!${range}?key=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
@@ -354,7 +354,7 @@
       for (var i = 0; i < 5; i++){
         const stars = document.createElement('div');
         stars.classList.add('stars');
-        if (i < rating){
+        if (i < parseInt(rating, 10)){
           stars.classList.add('golden');
         }
         rating_stars.appendChild(stars);

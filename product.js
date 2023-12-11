@@ -248,7 +248,7 @@
                     }
 
                     {//Related Products
-                        const range = 'A2:j';
+                        const range = 'A2:K';
 
                         fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${rel_sheet_name}!${range}?key=${API_KEY}`)
                             .then(response => response.json())

@@ -71,7 +71,7 @@ const row_id_find = [];
             data.values.forEach(async product => {
                 const [Customer_Username, SKU, Variation_SKU, Quantity, Brand, title, imageUrl, Size, Flavor, mrp, dis, price] = product;
 
-                ct_pr_value = ct_pr_value + parseInt(price, 10);
+                ct_pr_value = ct_pr_value + (parseInt(price, 10)*parseInt(Quantity));
                 row_id_find[j] = [Variation_SKU, j];
                 j++;
 
@@ -82,8 +82,16 @@ const row_id_find = [];
                 pr_img.src = imageUrl;
                 cart_ind_pr_H.appendChild(pr_img);
 
+                pr_img.addEventListener('click', () => {
+                    window.location.href = `product.html?SKU=${SKU}&VSKU=${Variation_SKU}`;
+                })
+
                 const pr_text_data_con = document.createElement('div');
                 pr_text_data_con.classList.add('pr_text_data_con');
+
+                pr_text_data_con.addEventListener('click', () => {
+                    window.location.href = `product.html?SKU=${SKU}&VSKU=${Variation_SKU}`;
+                })
 
                 const ct_pr_brand = document.createElement('p');
                 ct_pr_brand.classList.add('ct_pr_brand');
