@@ -1,76 +1,130 @@
-const Player_1 = document.getElementById('Player_1');
-Player_1.addEventListener('click', function () {
-    Player_1.classList.add('active');
-    Player_2.classList.remove('active');
-})
+const game_starter_btn = document.getElementById('game_starter_btn');
+document.getElementById('Notification_con').style.display = 'none';
+var Player_1 = 0;
+var Player_2 = 0;
+let currentPlayer = 'X';
+let boardState = ['', '', '', '', '', '', '', '', ''];
+let gameActive = true;
+let timerInterval;
 
-const Player_2 = document.getElementById('Player_2');
-Player_2.addEventListener('click', function () {
-    Player_2.classList.add('active');
-    Player_1.classList.remove('active');
-})
+document.addEventListener('DOMContentLoaded', () => {
+    const player1Input = document.getElementById('player_1');
+    const player2Input = document.getElementById('player_2');
+    const board = document.getElementById('board');
+    const resetBtn = document.getElementById('not_okay');
 
-var back_color = 'green';
+    document.addEventListener('keydown', (event) => {
+        // Check if Enter key is pressed and the game_starter is visible
+        if (event.key === 'Enter' && getComputedStyle(game_starter).display !== 'none') {
+            // Simulate a click on the game_starter_btn
+            game_starter_btn.click();
+        }})
 
-    const cell_1 = document.getElementById('Cell_1');
-    cell_1.addEventListener('click', function(){
-        cell_1.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+    game_starter_btn.addEventListener('click', () => {
+        // Check if both input fields are filled
+        if (player1Input.value.trim() !== '' && player2Input.value.trim() !== '') {
+            if (player1Input.value != player2Input.value) {
+                Player_1 = player1Input.value;
+                Player_2 = player2Input.value;
+                document.getElementById('game_starter').style.display = 'none';
+            } else {
+                alert('Both Player names can not be same');
+            }
+        } else {
+            // If any input field is empty, alert the user
+            alert('Please fill in both player names before starting the game.');
+        }
 
-    const cell_2 = document.getElementById('Cell_2');
-    cell_2.addEventListener('click', function(){
-        cell_2.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+        const Player_1_name = document.querySelector('#G_Player_1_con .G_Name_Con');
+        Player_1_name.textContent = Player_1;
 
-    const cell_3 = document.getElementById('Cell_3');
-    cell_3.addEventListener('click', function(){
-        cell_3.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+        const Player_2_name = document.querySelector('#G_Player_2_con .G_Name_Con');
+        Player_2_name.textContent = Player_2;
+    });
 
-    const cell_4 = document.getElementById('Cell_4');
-    cell_4.addEventListener('click', function(){
-        cell_4.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+    // Create the game board
+    for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.setAttribute('data-index', i);
+        cell.addEventListener('click', () => cellClick(i));
+        board.appendChild(cell);
+    }
 
-    const cell_5 = document.getElementById('Cell_5');
-    cell_5.addEventListener('click', function(){
-        cell_5.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+    resetBtn.addEventListener('click', resetGame);
+});
 
-    const cell_6 = document.getElementById('Cell_6');
-    cell_6.addEventListener('click', function(){
-        cell_6.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+function resetGame() {
+    currentPlayer = 'X';
+    boardState = ['', '', '', '', '', '', '', '', ''];
+    gameActive = true;
+    document.getElementById('Notification_con').style.display = 'none';
+    document.getElementById('game_starter').style.display = 'flex';
+    renderBoard();
+}
 
-    const cell_7 = document.getElementById('Cell_7');
-    cell_7.addEventListener('click', function(){
-        cell_7.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+function changePlayer(active_player) {
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 
-    const cell_8 = document.getElementById('Cell_8');
-    cell_8.addEventListener('click', function(){
-        cell_8.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+    if (active_player === 'O') {
+        document.getElementById('G_Player_1_con').classList.add('active');
+        document.getElementById('G_Player_2_con').classList.remove('active');
+    } else if (active_player === 'X') {
+        document.getElementById('G_Player_1_con').classList.remove('active');
+        document.getElementById('G_Player_2_con').classList.add('active');
+    } 
+}
 
-    const cell_9 = document.getElementById('Cell_9');
-    cell_9.addEventListener('click', function(){
-        cell_9.style.backgroundColor = back_color;
-        check_for_winner ();
-    })
+function cellClick(index) {
+    if (!gameActive || boardState[index] !== '') return;
 
-function check_for_winner () {
-    if (cell_1.style.backgroundColor && cell_2.style.backgroundColor && cell_2.style.backgroundColor === cell_3.style.backgroundColor      ) {
-        document.querySelector('#Player_2 h1').textContent = 'Winner';
-    };
-    if (cell_4.style.backgroundColor === cell_5.style.backgroundColor && cell_5.style.backgroundColor === cell_6.style.backgroundColor      ) {
-        document.querySelector('#Player_2 h1').textContent = 'Winner';
+    boardState[index] = currentPlayer;
+    renderBoard();
+
+    if (checkWinner()) {
+        if (currentPlayer === 'X') {
+            showNotification('&#127881', `${Player_1} is the winner`);
+        } else if (currentPlayer === 'O') {
+            showNotification('&#127881', `${Player_2} is the winner`);
+        }
+        gameActive = false;
+    } else if (boardState.every(cell => cell !== '')) {
+        showNotification('&#128515', `It is a draw!`);
+        gameActive = false;
+    } else {
+        changePlayer(currentPlayer);
     }
 }
+
+function checkWinner() {
+    const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]              // Diagonals
+    ];
+
+    return winPatterns.some(pattern => {
+        const [a, b, c] = pattern;
+        return boardState[a] !== '' && boardState[a] === boardState[b] && boardState[a] === boardState[c];
+    });
+}
+
+function renderBoard() {
+    boardState.forEach((value, index) => {
+        const cell = board.children[index];
+        cell.textContent = value;
+        if (value === 'X') {
+            cell.style.color = '#F54D62';
+        } else if (value === 'O') {
+            cell.style.color = '#87E43A';
+        }
+    });
+}
+
+function showNotification(Emoji, Message) {
+    document.getElementById('Notification_Emoji').innerHTML = Emoji;
+    document.getElementById('Notification_Message').textContent = Message;
+    document.getElementById('Notification_con').style.display = 'flex';
+}
+
+

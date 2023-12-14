@@ -260,6 +260,7 @@ html {
 .pr_hero_img {
   width: 64%;
   padding: 3%;
+  aspect-ratio: 1;
   height: max-content;
   position: sticky;
   overflow: hidden;
@@ -271,7 +272,10 @@ html {
 .pr_hero_img img {
   width: 100%;
   border-radius: 10px;
+  position:relative;
   aspect-ratio: 1;
+  transform: scale(1);
+  transition: 0.3s ease;
 }
 
 /*Product Text Data*/

@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nutrition</title>
-        <link href="index.css" rel="stylesheet">
-    </head>
-    <body>
-        <div>
-            <h1 class="Heading">Pintu's Tic Tac Game</h1>
-        </div>
-        <section>
-            <div class="button_con">
-                <div class="player_H Left" id="Player_1">
-                    <h1 class="Active">Player 1</h1>
-                </div>
-            </div>
-            <div class="game_pan_H">
-                <div class="V_H">
-                    <div class="H_H" id="Cell_1"></div>
-                    <div class="H_H" id="Cell_2"></div>
-                    <div class="H_H" id="Cell_3"></div>
-                </div>
-                <div class="V_H">
-                    <div class="H_H" id="Cell_4"></div>
-                    <div class="H_H" id="Cell_5"></div>
-                    <div class="H_H" id="Cell_6"></div>
-                </div>
-                <div class="V_H">
-                    <div class="H_H" id="Cell_7"></div>
-                    <div class="H_H" id="Cell_8"></div>
-                    <div class="H_H" id="Cell_9"></div>
-                </div>
-            </div>
-            <div class="button_con">
-                <div class="player_H Right" id="Player_2">
-                    <h1>Player 2</h1>
-                </div>
-            </div>
-        </section>
-        <script src="index.js"></script>
-    </body>
-    <footer>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
 
-    </footer>
+    <div id="Notification_con">
+        <div id="notification">
+            <div id="Notification_Emoji"></div>
+            <h2 id="Notification_Message"></h2>
+            <button id="not_okay">Okay</button>
+        </div>
+    </div>
+
+    <div id="game_starter">
+        <h1 id="Heading_start">Welcome to Game Center</h1>
+        <div class="starter_parts">
+            <div id="Player_1_con" class="player_con">
+                <div class="symbol_con"><h1>X</h1></div>
+                <div class="input_con"><label for="player_1">Enter your name:</label><input id="player_1" type="text" required autocomplete="name" ></div>
+            </div>
+            <div id="Player_2_con" class="player_con">
+                <div class="symbol_con"><h1>O</h1></div>
+                <div class="input_con"><label for="player_2">Enter your name:</label><input id="player_2" type="text" required autocomplete="name" ></div>
+            </div>
+        </div>
+        <button id="game_starter_btn">Start</button>
+    </div>
+
+    <section id="game_body">
+        <div id="heading_timer">
+            <h1>TIC-TAC-TOE</h1>
+        </div>
+        <div id="game_con">
+            <div id="G_Player_1_con" class="G_Player_con active">
+                <div class="G_S_CON"><h1>X</h1></div>
+                <h1 class="G_Name_Con">Pintu Kumar</h1>
+            </div>
+            <div class="container">
+                <div id="board" class="board"></div>
+            </div>
+            <div id="G_Player_2_con" class="G_Player_con">
+                <div class="G_S_CON"><h1>O</h1></div>
+                <h1 class="G_Name_Con">Ram Kumar</h1>
+            </div>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
